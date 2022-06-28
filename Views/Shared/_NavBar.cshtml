@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="/css/style.css">
 <div class="navBar" id="navBar">
-    <h1>Axon</h1>
-    <div>
+    <h1 id="navLogo">Axon</h1>
+    <div id="navLinkContainer">
         @foreach (var Link in ViewBag.NavLinks)
         {
             if(ViewBag.ActivePage == @Link.Key) {

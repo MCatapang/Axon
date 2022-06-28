@@ -20,24 +20,22 @@ public class HomeController : Controller
     [HttpGet("/")]
     public IActionResult Home()
     {
-        ViewBag.NavLinks = navLinks;
-        ViewBag.ActivePage = "Home";
+        HttpContext.Session.SetObjectAsJson("NavLinks", navLinks);
+        HttpContext.Session.SetString("ActiveLink", "Home");
         return View("Home");
     }
 
     [HttpGet("/register")]
     public IActionResult Register()
     {
-        ViewBag.NavLinks = navLinks;
-        ViewBag.ActivePage = "Register";
+        HttpContext.Session.SetString("ActiveLink", "Register");
         return View("Register");
     }
 
     [HttpGet("/login")]
     public IActionResult Login()
     {
-        ViewBag.NavLinks = navLinks;
-        ViewBag.ActivePage = "Login";
+        HttpContext.Session.SetString("ActiveLink", "Login");
         return View("Login");
     }
 
@@ -49,6 +47,10 @@ public class HomeController : Controller
     [HttpPost("/register")]
     public IActionResult Registering(Employee formData)
     {
+        if(!ModelState.IsValid) 
+        {
+            return View("Register"); 
+        }
         return RedirectToAction("Home");
     }
 

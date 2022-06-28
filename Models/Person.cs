@@ -6,12 +6,15 @@ namespace Axon.Models;
 public class Person
 {
     [Required(ErrorMessage = "Field can't be empty!")]
+    [Display(Name = "First Name")]
     public string FirstName { get; set; }
 
     [Required(ErrorMessage = "Field can't be empty!")]
+    [Display(Name = "Last Name")]
     public string LastName { get; set; }
 
     [Required(ErrorMessage = "Field can't be empty!")]
+    [Display( Name = "Home Address")]
     public string Address { get; set; }
 
     [Required(ErrorMessage = "Field can't be empty!")]
@@ -22,6 +25,7 @@ public class Person
     public string Facility { get; set; }
 
     [Required(ErrorMessage = "Field can't be empty!")]
+    [Display(Name = "Email Address")]
     public string EmailAddress { get; set; }
 
     [Required]

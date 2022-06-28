@@ -12,55 +12,64 @@
 </head>
 <body>
     <partial name="_NavBar">
-    <div class="contentContainer">
-        <h1>Create an account</h1>
+    <div class="contentContainer formContainer">
         <form asp-action="Registering" asp-controller="Home">
-            <label asp-for="FirstName"></label>
-            <input asp-for="FirstName">
-            <span asp-validation-for="FirstName"></span>
+            <div class="formHeader">
+                <h1>Create an account</h1>
+                <img src="/images/Register.png" alt="Register Icon">
+            </div>
+            <hr>
+            <div class="formInputsArea">
+                <div>
+                    <label asp-for="FirstName"></label>
+                    <input asp-for="FirstName">
+                    <span asp-validation-for="FirstName"></span>
 
-            <label asp-for="LastName"></label>
-            <input asp-for="LastName">
-            <span asp-validation-for="LastName"></span>
+                    <label asp-for="LastName"></label>
+                    <input asp-for="LastName">
+                    <span asp-validation-for="LastName"></span>
 
-            <label asp-for="Address"></label>
-            <input asp-for="Address">
-            <span asp-validation-for="Address"></span>
+                    <label asp-for="Address"></label>
+                    <input asp-for="Address">
+                    <span asp-validation-for="Address"></span>
 
-            <label asp-for="Birthday"></label>
-            <input asp-for="Birthday">
-            <span asp-validation-for="Birthday"></span>
+                    <label asp-for="Birthday"></label>
+                    <input asp-for="Birthday">
+                    <span asp-validation-for="Birthday"></span>
+                </div>
+                <div>
+                    <label asp-for="Facility"></label>
+                    <select asp-for="Facility">
+                        <option></option>
+                        <option>Sample Facility 1</option>
+                        <option>Sample Facility 2</option>
+                    </select>
+                    <span asp-validation-for="Facility"></span>
 
-            <label asp-for="Facility"></label>
-            <select asp-for="Facility">
-                <option></option>
-                <option>Sample Facility 1</option>
-                <option>Sample Facility 2</option>
-            </select>
-            <span asp-validation-for="Facility"></span>
+                    <label asp-for="PrimaryRole"></label>
+                    <select asp-for="PrimaryRole">
+                        <option></option>
+                        <option>Sample Role 1</option>
+                        <option>Sample Role 2</option>
+                    </select>
+                    <span asp-validation-for="PrimaryRole"></span>
 
-            <label asp-for="PrimaryRole"></label>
-            <select asp-for="PrimaryRole">
-                <option></option>
-                <option>Sample Role 1</option>
-                <option>Sample Role 2</option>
-            </select>
-            <span asp-validation-for="PrimaryRole"></span>
-
-            <label asp-for="EmailAddress"></label>
-            <input asp-for="EmailAddress">
-            <span asp-validation-for="EmailAddress"></span>
+                    <label asp-for="EmailAddress"></label>
+                    <input asp-for="EmailAddress">
+                    <span asp-validation-for="EmailAddress"></span>
 
 
-            <label asp-for="Password"></label>
-            <input asp-for="Password">
-            <span asp-validation-for="Password"></span>
+                    <label asp-for="Password"></label>
+                    <input asp-for="Password">
+                    <span asp-validation-for="Password"></span>
 
-            <label asp-for="Confirm"></label>
-            <input asp-for="Confirm">
-            <span asp-validation-for="Confirm"></span>
+                    <label asp-for="Confirm"></label>
+                    <input asp-for="Confirm">
+                    <span asp-validation-for="Confirm"></span>
 
-            <input type="submit" value="Create">
+                    <button type="submit">Create</button>
+                </div>
+            </div>
         </form>
     </div>
     <partial name="_Footer">

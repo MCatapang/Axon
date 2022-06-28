@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "D19MSHEaLx6cW0Hb5woegXFCgcjf3BGTC2Ln5bOi3vw=",
+  "Hash": "ZjjgZ5mvxxLG/fxj+kvxabptRn60CwfCDa9b6eq0jKU=",
   "Source": "Axon",
   "BasePath": "_content/Axon",
   "Mode": "Default",
@@ -34,6 +34,23 @@
       "OriginalItemSpec": "wwwroot/css/style.css"
     },
     {
+      "Identity": "/Users/maocatap/Documents/Education/Projects/Axon/wwwroot/images/FormBackground.jpg",
+      "SourceId": "Axon",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/maocatap/Documents/Education/Projects/Axon/wwwroot/",
+      "BasePath": "_content/Axon",
+      "RelativePath": "images/FormBackground.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/images/FormBackground.jpg"
+    },
+    {
       "Identity": "/Users/maocatap/Documents/Education/Projects/Axon/wwwroot/images/HomeBackground.jpg",
       "SourceId": "Axon",
       "SourceType": "Discovered",
@@ -49,6 +66,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/images/HomeBackground.jpg"
+    },
+    {
+      "Identity": "/Users/maocatap/Documents/Education/Projects/Axon/wwwroot/images/Login.png",
+      "SourceId": "Axon",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/maocatap/Documents/Education/Projects/Axon/wwwroot/",
+      "BasePath": "_content/Axon",
+      "RelativePath": "images/Login.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/images/Login.png"
+    },
+    {
+      "Identity": "/Users/maocatap/Documents/Education/Projects/Axon/wwwroot/images/Register.png",
+      "SourceId": "Axon",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/maocatap/Documents/Education/Projects/Axon/wwwroot/",
+      "BasePath": "_content/Axon",
+      "RelativePath": "images/Register.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/images/Register.png"
     },
     {
       "Identity": "/Users/maocatap/Documents/Education/Projects/Axon/wwwroot/script/script.js",

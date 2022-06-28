@@ -1,0 +1,33 @@
+@model EmployeeLogin
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Axon</title>
+</head>
+
+<body>
+    <partial name="_NavBar">
+    <div class="contentContainer">
+        <h1>Access your dashboard</h1>
+        <form asp-action="LoggingIn" asp-controller="Home">
+            <label asp-for="EmailLogin"></label>
+            <input asp-for="EmailLogin">
+            <span asp-validation-for="EmailLogin"></span>
+
+            <label asp-for="PasswordLogin"></label>
+            <input asp-for="PasswordLogin">
+            <span asp-validation-for="PasswordLogin"></span>
+
+            <input type="submit" value="Access">
+        </form>
+    </div>
+    <partial name="_Footer">
+</body>
+
+</html>

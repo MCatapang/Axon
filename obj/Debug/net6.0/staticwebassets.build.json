@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "Hash": "hyG9UiLSk9gFFwN/Dmk7NB1lkQehXVW4xsNydSqm8Co=",
+  "Source": "Axon",
+  "BasePath": "_content/Axon",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "Axon/wwwroot",
+      "Source": "Axon",
+      "ContentRoot": "/Users/maocatap/Documents/Education/Projects/Axon/wwwroot/",
+      "BasePath": "_content/Axon",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "/Users/maocatap/Documents/Education/Projects/Axon/wwwroot/css/style.css",
+      "SourceId": "Axon",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/maocatap/Documents/Education/Projects/Axon/wwwroot/",
+      "BasePath": "_content/Axon",
+      "RelativePath": "css/style.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/css/style.css"
+    },
+    {
+      "Identity": "/Users/maocatap/Documents/Education/Projects/Axon/wwwroot/images/HomeBackground.jpg",
+      "SourceId": "Axon",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/maocatap/Documents/Education/Projects/Axon/wwwroot/",
+      "BasePath": "_content/Axon",
+      "RelativePath": "images/HomeBackground.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/images/HomeBackground.jpg"
+    }
+  ]
+}

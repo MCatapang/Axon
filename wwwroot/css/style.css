@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
 
 
-/* Margin and Padding Reset */
+/* General */
 html, body {
     margin: 0px;
     padding: 0px;
@@ -23,6 +23,20 @@ a {
 a:hover {
     color: #0095ff;
     transition: 0.20s;
+}
+.contentContainer {
+    margin: 0px;
+    padding: 0px 0px 0px 0px;
+    width: 100%;
+    height: 1000px;
+    background: url("/images/HomeBackground.jpg") no-repeat center center; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
@@ -75,22 +89,8 @@ a:hover {
 
 
 /* Home */
-.contentContainer {
-    margin: 0px;
-    padding: 0px;
-    width: 100%;
-    height: 1000px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: url("/images/HomeBackground.jpg") no-repeat center center; 
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-}
 .catchphrase {
-    margin: 100px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
     padding: 0px 0px 0px 30px;
     width: 90%;
     height: fit-content;

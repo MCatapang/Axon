@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "hyG9UiLSk9gFFwN/Dmk7NB1lkQehXVW4xsNydSqm8Co=",
+  "Hash": "D19MSHEaLx6cW0Hb5woegXFCgcjf3BGTC2Ln5bOi3vw=",
   "Source": "Axon",
   "BasePath": "_content/Axon",
   "Mode": "Default",
@@ -49,6 +49,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/images/HomeBackground.jpg"
+    },
+    {
+      "Identity": "/Users/maocatap/Documents/Education/Projects/Axon/wwwroot/script/script.js",
+      "SourceId": "Axon",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/maocatap/Documents/Education/Projects/Axon/wwwroot/",
+      "BasePath": "_content/Axon",
+      "RelativePath": "script/script.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/script/script.js"
     }
   ]
 }

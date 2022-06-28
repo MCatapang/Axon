@@ -1,15 +1,18 @@
 <link rel="stylesheet" href="/css/style.css">
-<div class="navBar">
+<div class="navBar" id="navBar">
     <h1>Axon</h1>
     <div>
-        <a href="/">
-            <h2>Home</h2>
-        </a>
-        <a href="/register">
-            <h2>Register</h2>
-        </a>
-        <a href="/login">
-            <h2>Login</h2>
-        </a>
+        @foreach (var Link in ViewBag.NavLinks)
+        {
+            if(ViewBag.ActivePage == @Link.Key) {
+                <a href="@Link.Value">
+                    <h2 style="color: #0095ff;">@Link.Key</h2>
+                </a>
+            } else{
+                <a href="@Link.Value">
+                    <h2>@Link.Key</h2>
+                </a>
+            }
+        }
     </div>
 </div>

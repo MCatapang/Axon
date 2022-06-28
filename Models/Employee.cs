@@ -19,6 +19,7 @@ public class Employee : Person
     public string Password { get; set; }
 
     [NotMapped]
+    [Required(ErrorMessage = "Field can't be empty!")]
     [Display(Name = " Confirm Password")]
     [Compare("Password", ErrorMessage = "Passwords must match!")]
     [DataType(DataType.Password)]

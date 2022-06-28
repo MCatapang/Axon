@@ -15,6 +15,14 @@ public class HomeController : Controller
         {"Register", "/register"},
         {"Login", "/login"}
     };
+
+    public bool Is18orOver(DateTime bday) {
+        return bday.AddYears(18) < DateTime.Now ? true : false;
+    }
+
+
+
+
     // ------------------------ Routes: GET
 
     [HttpGet("/")]
@@ -49,6 +57,9 @@ public class HomeController : Controller
     {
         if(!ModelState.IsValid) 
         {
+            if(formData.Birthday.ToString() == "1/1/0001") {
+                ModelState.AddModelError("Birthday", "Field can't be empty!");
+            }
             return View("Register"); 
         }
         return RedirectToAction("Home");

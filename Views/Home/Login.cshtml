@@ -16,18 +16,22 @@
     <partial name="_NavBar">
     <div class="contentContainer formContainer">
         <form asp-action="LoggingIn" asp-controller="Home">
-            <h1>Access your dashboard</h1>
-            <img src="/images/Register.png" alt="Register Icon">
+            <div class="formHeader">
+                <h1>Access your account</h1>
+                <img src="/images/Login.png" alt="Login Icon">
+            </div>
             <hr>
-            <label asp-for="EmailLogin"></label>
-            <input asp-for="EmailLogin">
-            <span asp-validation-for="EmailLogin"></span>
+            <div class="formInputsAreaSolo">
+                    <label asp-for="EmailLogin"></label>
+                    <input asp-for="EmailLogin">
+                    <span asp-validation-for="EmailLogin"></span>
 
-            <label asp-for="PasswordLogin"></label>
-            <input asp-for="PasswordLogin">
-            <span asp-validation-for="PasswordLogin"></span>
+                    <label asp-for="PasswordLogin"></label>
+                    <input asp-for="PasswordLogin">
+                    <span asp-validation-for="PasswordLogin"></span>
 
-            <input type="submit" value="Access">
+                    <button type="submit">Access</button>
+            </div>
         </form>
     </div>
     <partial name="_Footer">

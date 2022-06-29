@@ -156,7 +156,12 @@ hr {
     grid-template-columns: repeat(2, 1fr);
     font-size: 25px;
 }
-.formInputsArea > div {
+.formInputsAreaSolo {
+    display: grid;
+    grid-template-columns: 1;
+    font-size: 25px;
+}
+.formInputsArea > div, .formInputsAreaSolo {
     height: 800px;
     display: flex;
     flex-direction: column;
@@ -164,11 +169,12 @@ hr {
     align-items: center;
     justify-content: space-around;
 }
-.formInputsArea label {
+.formInputsArea label, .formInputsAreaSolo label {
     margin: 20px 0px 0px 0px;
     font-weight: bold;
 }
-.formInputsArea input, .formInputsArea select {
+.formInputsArea input, .formInputsArea select, 
+.formInputsAreaSolo input, .formInputsArea select {
     width: 45%;
     border-style: solid;
     border-color: #0095ff;

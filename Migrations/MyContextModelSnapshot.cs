@@ -53,6 +53,9 @@ namespace Axon.Migrations
                     b.Property<DateTime>("Birthday")
                         .HasColumnType("datetime(6)");
 
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime(6)");
+
                     b.Property<string>("EmailAddress")
                         .IsRequired()
                         .HasColumnType("longtext");
@@ -77,6 +80,9 @@ namespace Axon.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime(6)");
+
                     b.HasKey("EmployeeID");
 
                     b.ToTable("Employees");
@@ -99,6 +105,9 @@ namespace Axon.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime(6)");
+
                     b.Property<string>("EmailAddress")
                         .IsRequired()
                         .HasColumnType("longtext");
@@ -114,6 +123,9 @@ namespace Axon.Migrations
                     b.Property<string>("LastName")
                         .IsRequired()
                         .HasColumnType("longtext");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime(6)");
 
                     b.HasKey("PatientID");
 

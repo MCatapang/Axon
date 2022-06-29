@@ -71,10 +71,9 @@ public class HomeController : Controller
         }
         PasswordHasher<Employee> Hasher = new PasswordHasher<Employee>();
         formData.Password = Hasher.HashPassword(formData, formData.Password);
+        Console.WriteLine(formData.Password);
         _context.Employees.Add(formData);
         _context.SaveChanges();
-        string hashedSession = Hasher.HashPassword(formData, formData.EmployeeID.ToString());
-        Console.WriteLine(hashedSession);
         return RedirectToAction("Home");
     }
 

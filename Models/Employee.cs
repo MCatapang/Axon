@@ -14,7 +14,6 @@ public class Employee : Person
 
     [Required(ErrorMessage = "Field can't be empty!")]
     [MinLength(8, ErrorMessage = "Must be at least 8 characters!")]
-    [MaxLength(20, ErrorMessage = "Must be less than 20 characters!")]
     [DataType(DataType.Password)]
     public string Password { get; set; }
 

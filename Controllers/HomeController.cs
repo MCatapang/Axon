@@ -54,14 +54,19 @@ public class HomeController : Controller
     [HttpPost("/register")]
     public IActionResult Registering(Employee formData)
     {
-        Console.WriteLine(formData.Birthday.Year);
-        Console.WriteLine(formData.Birthday.Year.ToString());
+        if(ModelState["Birthday"].AttemptedValue == "")
+        {
+            ModelState["Birthday"].Errors.Clear();
+            ModelState["Birthday"].Errors.Add("Field can't be empty!");
+            return View("Register");
+        }
         if(!ModelState.IsValid) 
         {
             return View("Register"); 
         }
-        if(formData.Birthday.Year.ToString() == "1") 
+        if(formData.Birthday.AddYears(18) < DateTime.Now) 
         {
+            Console.WriteLine("Inside baby");
             ModelState.AddModelError("Birthday", "Field can't be empty!");
             return View("Register");
         }

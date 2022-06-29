@@ -21,7 +21,7 @@ public class Person
     public string Address { get; set; }
 
     [Required(ErrorMessage = "Field can't be empty!")]
-    // [DataType(DataType.Date)]
+    [DataType(DataType.Date)]
     public DateTime Birthday { get; set; }
 
     [Required(ErrorMessage = "Field can't be empty!")]

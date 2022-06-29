@@ -22,7 +22,6 @@ a {
 }
 a:hover {
     color: #0095ff;
-    transition: 0.20s;
 }
 .contentContainer {
     margin: 0px;
@@ -54,6 +53,7 @@ a:hover {
     -o-user-select: none;
     user-select: none;
     background-color: #1a1a1a;
+    min-width: 800px;
 }
 .navBar {
     z-index: 9998;
@@ -63,13 +63,19 @@ a:hover {
     box-shadow: 0px 10px 25px #1a1a1a99;
     position: fixed;
     top: 0px;
-    transition: 1s;
+    transition: 0.25s;
+}
+.navBar a {
+    transition: 0.25s;
+}
+.navBar a:last-child {
+    transition: 0.25s;
 }
 #navLogo {
     margin: 0px 0px 0px 20px;
     padding: 0px;
     font-size: 75px;
-    transition: 1s;
+    transition: 0.25s;
     cursor: default;
 }
 #navLinkContainer {
@@ -78,7 +84,7 @@ a:hover {
     width: 400px;
     display: flex;
     justify-content: space-between;
-    transition: 1s;
+    transition: 0.25s;
 }
 #moreOptions {
     cursor: pointer;
@@ -99,7 +105,7 @@ a:hover {
     z-index: 9997;
     box-shadow: 0px 10px 25px #1a1a1a99;
     opacity: 0;
-    transition: 1s;
+    transition: 0.25s;
 }
 #optionsDropdown > * {
     margin: 0px;

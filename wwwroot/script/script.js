@@ -1,6 +1,7 @@
 let moreOptions = document.getElementById("moreOptions");
 let optionsDropdown = document.getElementById("optionsDropdown");
 let navLinkContainer = document.getElementById("navLinkContainer");
+let navBar = document.getElementById("navBar");
 let toggle = false;
 
 function scrollFunction() {
@@ -42,7 +43,4 @@ moreOptions.addEventListener("click", function(){
         moreOptions.style.color = "#ffffff";
         toggle = false;
     }
-})
-function timedOpacity() {
-
-}
+});

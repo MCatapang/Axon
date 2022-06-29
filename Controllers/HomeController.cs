@@ -28,6 +28,11 @@ public class HomeController : Controller
     [HttpGet("/")]
     public IActionResult Home()
     {
+        if(HttpContext.Session.GetInt32("EmployeeID") != null)
+        {
+            HttpContext.Session.SetString("ActiveLink", "Dashboard");
+            return View("Dashboard");
+        }
         HttpContext.Session.SetString("ActiveLink", "Home");
         return View("Home");
     }
@@ -71,9 +76,9 @@ public class HomeController : Controller
         }
         PasswordHasher<Employee> Hasher = new PasswordHasher<Employee>();
         formData.Password = Hasher.HashPassword(formData, formData.Password);
-        Console.WriteLine(formData.Password);
         _context.Employees.Add(formData);
         _context.SaveChanges();
+        HttpContext.Session.SetInt32("EmployeeID", formData.EmployeeID);
         return RedirectToAction("Home");
     }
 

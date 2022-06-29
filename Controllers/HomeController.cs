@@ -61,7 +61,7 @@ public class HomeController : Controller
     {
         bool emptyBDay = ModelState["Birthday"].AttemptedValue == "";
         bool under18 = formData.Birthday.AddYears(18) > DateTime.Now;
-        
+
         if(emptyBDay)
         {
             ModelState["Birthday"].Errors.Clear();
@@ -96,6 +96,7 @@ public class HomeController : Controller
             ModelState.AddModelError("PasswordLogin", "Invalid Email/Password");
             return View("Login");
         }
+        HttpContext.Session.SetInt32("EmployeeID", retrieved.EmployeeID);
         return RedirectToAction("Home");
     }
 }

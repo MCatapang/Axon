@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ZjjgZ5mvxxLG/fxj+kvxabptRn60CwfCDa9b6eq0jKU=",
+  "Hash": "e9BjNlOthqy5VS7Dg8S+iG1OM5V3so/90bSio9dk+70=",
   "Source": "Axon",
   "BasePath": "_content/Axon",
   "Mode": "Default",
@@ -32,6 +32,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/css/style.css"
+    },
+    {
+      "Identity": "/Users/maocatap/Documents/Education/Projects/Axon/wwwroot/images/DashboardBackground.png",
+      "SourceId": "Axon",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/maocatap/Documents/Education/Projects/Axon/wwwroot/",
+      "BasePath": "_content/Axon",
+      "RelativePath": "images/DashboardBackground.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/images/DashboardBackground.png"
     },
     {
       "Identity": "/Users/maocatap/Documents/Education/Projects/Axon/wwwroot/images/FormBackground.jpg",

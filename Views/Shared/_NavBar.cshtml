@@ -17,8 +17,7 @@
         navLinks = new Dictionary<string, string>()
         {
             {"Dashboard", "/"},
-            {"Account", "/account"},
-            {"Logout", "/logout"},
+            {"Placeholder", "/"}
         };
     }
 }
@@ -42,7 +41,7 @@
         @if(loggedIn)
         {
             <a id="moreOptions">
-                <h2>+</h2>
+                <h2 onmouseover="">+</h2>
             </a>
         }
     </div>

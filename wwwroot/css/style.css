@@ -56,35 +56,71 @@ a:hover {
     background-color: #1a1a1a;
 }
 .navBar {
-    z-index: 9999;
+    z-index: 9998;
     height: 125px;
     justify-content: space-between;
     color: #e4e4e4;
     box-shadow: 0px 10px 25px #1a1a1a99;
     position: fixed;
     top: 0px;
-    transition: 0.25s;
+    transition: 1s;
 }
 #navLogo {
     margin: 0px 0px 0px 20px;
     padding: 0px;
     font-size: 75px;
-    transition: 0.25s;
+    transition: 1s;
     cursor: default;
 }
 #navLinkContainer {
     margin: 0px 20px 0px 0px;
     padding: 0px;
-    width: 450px;
+    width: 400px;
     display: flex;
     justify-content: space-between;
-    transition: 0.90s;
+    transition: 1s;
 }
 #moreOptions {
-    transition: 0.5s;
+    cursor: pointer;
 }
-#moreOptions:hover {
-    transform: rotate(180deg);
+#optionsDropdown {
+    margin: 0px 0px 0px auto;
+    padding: 0px;
+    width: 300px;
+    height: fit-content;
+    background-color: #1a1a1a;
+    flex-direction: column;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: space-evenly;
+    position: sticky;
+    top: -1000px;
+    border-radius: 0px 0px 8px 8px;
+    z-index: 9997;
+    box-shadow: 0px 10px 25px #1a1a1a99;
+    opacity: 0;
+    transition: 1s;
+}
+#optionsDropdown > * {
+    margin: 0px;
+    padding: 0px;
+    height: 50px;
+}
+#optionsDropdown a {
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#optionsDropdown a:hover {
+    background-color: #e4e4e4;
+}
+#optionsDropdown > a:last-child {
+    border-radius: 0px 0px 8px 8px;
+}
+#optionsDropdown > a:last-child:hover {
+    color: #ffffff;
+    background-color: #e13636;
 }
 .footer {
     height: 75px;

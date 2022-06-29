@@ -28,6 +28,7 @@ public class Person
     public string Facility { get; set; }
 
     [Required(ErrorMessage = "Field can't be empty!")]
+    [DataType(DataType.EmailAddress)]
     [Display(Name = "Email Address")]
     public string EmailAddress { get; set; }
 

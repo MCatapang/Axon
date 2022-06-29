@@ -60,15 +60,14 @@ public class HomeController : Controller
             ModelState["Birthday"].Errors.Add("Field can't be empty!");
             return View("Register");
         }
+        if(formData.Birthday.AddYears(18) > DateTime.Now) 
+        {
+            ModelState.AddModelError("Birthday", "Must be at least 18 years old!");
+            return View("Register");
+        }
         if(!ModelState.IsValid) 
         {
             return View("Register"); 
-        }
-        if(formData.Birthday.AddYears(18) < DateTime.Now) 
-        {
-            Console.WriteLine("Inside baby");
-            ModelState.AddModelError("Birthday", "Field can't be empty!");
-            return View("Register");
         }
         PasswordHasher<Employee> Hasher = new PasswordHasher<Employee>();
         formData.Password = Hasher.HashPassword(formData, formData.Password);

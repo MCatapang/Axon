@@ -1,13 +1,19 @@
 @{
-    Dictionary<string, string> NavLinks = Context.Session.GetObjectFromJson<Dictionary<string, string>>("NavLinks");
     string? ActiveLink = Context.Session.GetString("ActiveLink");
+
+    Dictionary<string, string> navLinks = new Dictionary<string, string>()
+    {
+        {"Home", "/"},
+        {"Register", "/register"},
+        {"Login", "/login"}
+    };
 }
 
 <link rel="stylesheet" href="/css/style.css">
 <div class="navBar" id="navBar">
     <h1 id="navLogo">Axon</h1>
     <div id="navLinkContainer">
-        @foreach (var Link in NavLinks)
+        @foreach (var Link in navLinks)
         {
             if(ActiveLink == @Link.Key) {
                 <a href="@Link.Value">

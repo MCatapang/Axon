@@ -9,12 +9,12 @@ using Axon.Models;
 
 public class HomeController : Controller
 {
-    Dictionary<string, string> navLinks = new Dictionary<string, string>()
+    private MyContext _context;
+
+    public HomeController(MyContext context)
     {
-        {"Home", "/"},
-        {"Register", "/register"},
-        {"Login", "/login"}
-    };
+        _context = context;
+    }
 
     public bool Is18orOver(DateTime bday) {
         return bday.AddYears(18) < DateTime.Now ? true : false;
@@ -28,7 +28,6 @@ public class HomeController : Controller
     [HttpGet("/")]
     public IActionResult Home()
     {
-        HttpContext.Session.SetObjectAsJson("NavLinks", navLinks);
         HttpContext.Session.SetString("ActiveLink", "Home");
         return View("Home");
     }
@@ -55,13 +54,23 @@ public class HomeController : Controller
     [HttpPost("/register")]
     public IActionResult Registering(Employee formData)
     {
+        Console.WriteLine(formData.Birthday.Year);
+        Console.WriteLine(formData.Birthday.Year.ToString());
         if(!ModelState.IsValid) 
         {
-            if(formData.Birthday.ToString() == "1/1/0001") {
-                ModelState.AddModelError("Birthday", "Field can't be empty!");
-            }
             return View("Register"); 
         }
+        if(formData.Birthday.Year.ToString() == "1") 
+        {
+            ModelState.AddModelError("Birthday", "Field can't be empty!");
+            return View("Register");
+        }
+        PasswordHasher<Employee> Hasher = new PasswordHasher<Employee>();
+        formData.Password = Hasher.HashPassword(formData, formData.Password);
+        _context.Employees.Add(formData);
+        _context.SaveChanges();
+        string hashedSession = Hasher.HashPassword(formData, formData.EmployeeID.ToString());
+        Console.WriteLine(hashedSession);
         return RedirectToAction("Home");
     }
 

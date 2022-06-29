@@ -33,11 +33,6 @@
                     <input asp-for="Address">
                     <span asp-validation-for="Address"></span>
 
-                    <label asp-for="Birthday"></label>
-                    <input asp-for="Birthday">
-                    <span asp-validation-for="Birthday"></span>
-                </div>
-                <div>
                     <label asp-for="Facility"></label>
                     <select asp-for="Facility">
                         <option></option>
@@ -45,7 +40,7 @@
                         <option>Sample Facility 2</option>
                     </select>
                     <span asp-validation-for="Facility"></span>
-
+                    
                     <label asp-for="PrimaryRole"></label>
                     <select asp-for="PrimaryRole">
                         <option></option>
@@ -53,6 +48,12 @@
                         <option>Sample Role 2</option>
                     </select>
                     <span asp-validation-for="PrimaryRole"></span>
+                </div>
+                <div>
+
+                    <label asp-for="Birthday"></label>
+                    <input asp-for="Birthday">
+                    <span asp-validation-for="Birthday"></span>
 
                     <label asp-for="EmailAddress"></label>
                     <input asp-for="EmailAddress">

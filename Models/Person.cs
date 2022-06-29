@@ -6,20 +6,23 @@ namespace Axon.Models;
 public class Person
 {
     [Required(ErrorMessage = "Field can't be empty!")]
+    [MinLength(2, ErrorMessage = "Must be at least 2 characters!")]
     [Display(Name = "First Name")]
     public string FirstName { get; set; }
 
     [Required(ErrorMessage = "Field can't be empty!")]
+    [MinLength(2, ErrorMessage = "Must be at least 2 characters!")]
     [Display(Name = "Last Name")]
     public string LastName { get; set; }
 
     [Required(ErrorMessage = "Field can't be empty!")]
-    [Display( Name = "Home Address")]
+    [MinLength(2, ErrorMessage = "Must be at least 2 characters!")]
+    [Display(Name = "Home Address")]
     public string Address { get; set; }
 
     [Required(ErrorMessage = "Field can't be empty!")]
-    [DataType(DataType.Date)]
-    public DateOnly? Birthday { get; set; }
+    // [DataType(DataType.Date)]
+    public DateTime Birthday { get; set; }
 
     [Required(ErrorMessage = "Field can't be empty!")]
     public string Facility { get; set; }

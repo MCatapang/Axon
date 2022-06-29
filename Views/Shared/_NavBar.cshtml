@@ -1,12 +1,26 @@
 @{
+    Dictionary<string, string> navLinks;
+    bool loggedIn = false;
     string? ActiveLink = Context.Session.GetString("ActiveLink");
-
-    Dictionary<string, string> navLinks = new Dictionary<string, string>()
+    if(ActiveLink == "Home" || ActiveLink == "Register" || ActiveLink == "Login")
     {
-        {"Home", "/"},
-        {"Register", "/register"},
-        {"Login", "/login"}
-    };
+        navLinks = new Dictionary<string, string>()
+        {
+            {"Home", "/"},
+            {"Register", "/register"},
+            {"Login", "/login"}
+        };
+    }
+    else
+    {
+        loggedIn = true;
+        navLinks = new Dictionary<string, string>()
+        {
+            {"Dashboard", "/"},
+            {"Account", "/account"},
+            {"Logout", "/logout"},
+        };
+    }
 }
 
 <link rel="stylesheet" href="/css/style.css">
@@ -24,6 +38,12 @@
                     <h2>@Link.Key</h2>
                 </a>
             }
+        }
+        @if(loggedIn)
+        {
+            <a id="moreOptions">
+                <h2>+</h2>
+            </a>
         }
     </div>
 </div>

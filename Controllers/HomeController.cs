@@ -40,6 +40,11 @@ public class HomeController : Controller
     [HttpGet("/register")]
     public IActionResult Register()
     {
+        if(HttpContext.Session.GetInt32("EmployeeID") != null) 
+        {
+            Console.WriteLine("hitting the conditional");
+            return RedirectToAction("Home");
+        }
         HttpContext.Session.SetString("ActiveLink", "Register");
         return View("Register");
     }
@@ -47,8 +52,20 @@ public class HomeController : Controller
     [HttpGet("/login")]
     public IActionResult Login()
     {
+        if(HttpContext.Session.GetInt32("EmployeeID") != null) 
+        {
+            return RedirectToAction("Home");
+        }
         HttpContext.Session.SetString("ActiveLink", "Login");
         return View("Login");
+    }
+
+    [HttpGet("/logout")]
+    public IActionResult Logout()
+    {
+        HttpContext.Session.Clear();
+        
+        return RedirectToAction("Home");
     }
 
 

@@ -14,7 +14,7 @@ body {
     max-height: fit-content;
     overflow: scroll;
     font-family: 'Roboto', sans-serif;
-    background-color: #000000;
+    background-color: #1a1a1a;
 }
 a {
     text-decoration: none;
@@ -75,10 +75,16 @@ a:hover {
 #navLinkContainer {
     margin: 0px 20px 0px 0px;
     padding: 0px;
-    width: 300px;
+    width: 450px;
     display: flex;
     justify-content: space-between;
     transition: 0.90s;
+}
+#moreOptions {
+    transition: 0.5s;
+}
+#moreOptions:hover {
+    transform: rotate(180deg);
 }
 .footer {
     height: 75px;
@@ -205,4 +211,20 @@ form button:hover {
 form button:active {
     background-color: #ffffff;
     color: #0095ff;
+}
+
+
+/* Dashboard */
+.dashboardContainer {
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    height: 1000px;
+    background: url("/images/DashboardBackground.png") no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
 }

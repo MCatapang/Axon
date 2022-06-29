@@ -59,32 +59,43 @@ public class HomeController : Controller
     [HttpPost("/register")]
     public IActionResult Registering(Employee formData)
     {
-        if(ModelState["Birthday"].AttemptedValue == "")
+        bool emptyBDay = ModelState["Birthday"].AttemptedValue == "";
+        bool under18 = formData.Birthday.AddYears(18) > DateTime.Now;
+        
+        if(emptyBDay)
         {
             ModelState["Birthday"].Errors.Clear();
             ModelState["Birthday"].Errors.Add("Field can't be empty!");
-            return View("Register");
         }
-        if(formData.Birthday.AddYears(18) > DateTime.Now) 
+        if(under18) 
         {
             ModelState.AddModelError("Birthday", "Must be at least 18 years old!");
-            return View("Register");
         }
-        if(!ModelState.IsValid) 
+        if(!ModelState.IsValid || emptyBDay || under18) 
         {
             return View("Register"); 
         }
+
         PasswordHasher<Employee> Hasher = new PasswordHasher<Employee>();
         formData.Password = Hasher.HashPassword(formData, formData.Password);
         _context.Employees.Add(formData);
         _context.SaveChanges();
         HttpContext.Session.SetInt32("EmployeeID", formData.EmployeeID);
+
         return RedirectToAction("Home");
     }
 
     [HttpPost("/login")]
     public IActionResult LoggingIn(EmployeeLogin formData)
     {
+        Employee retrieved = _context.Employees
+            .FirstOrDefault(e => e.EmailAddress == formData.EmailLogin);
+        if(retrieved == null)
+        {
+            ModelState.AddModelError("EmailLogin", "Invalid Email/Password");
+            ModelState.AddModelError("PasswordLogin", "Invalid Email/Password");
+            return View("Login");
+        }
         return RedirectToAction("Home");
     }
 }

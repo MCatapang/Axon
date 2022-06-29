@@ -70,6 +70,7 @@ a:hover {
     padding: 0px;
     font-size: 75px;
     transition: 0.25s;
+    cursor: default;
 }
 #navLinkContainer {
     margin: 0px 20px 0px 0px;

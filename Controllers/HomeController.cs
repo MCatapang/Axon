@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using Axon.Models;
+namespace Axon.Controllers;
 
 public class HomeController : Controller
 {
@@ -58,13 +59,6 @@ public class HomeController : Controller
         }
         HttpContext.Session.SetString("ActiveLink", "Login");
         return View("Login");
-    }
-
-    [HttpGet("/logout")]
-    public IActionResult Logout()
-    {
-        HttpContext.Session.Clear();
-        return RedirectToAction("Home");
     }
 
 

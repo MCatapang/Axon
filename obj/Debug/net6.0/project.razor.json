@@ -16303,6 +16303,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/Users/maocatap/Documents/Education/Projects/Axon/Views/FooterDiv/Contact.cshtml",
+      "TargetPath": "Views\\FooterDiv\\Contact.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/Users/maocatap/Documents/Education/Projects/Axon/Views/Home/Home.cshtml",
       "TargetPath": "Views\\Home\\Home.cshtml",
       "FileKind": "mvc"

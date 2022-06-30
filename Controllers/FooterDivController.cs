@@ -1,16 +1,19 @@
 #pragma warning disable CS8618
-using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
-using System.Linq;
+// Below added using these instructions:
+// https://docs.microsoft.com/en-us/aspnet/core/security/authentication/scaffold-identity?view=aspnetcore-6.0&tabs=netcore-cli
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Axon.Models;
 namespace Axon.Controllers;
 
 public class FooterDivController : Controller
 {
-    DashDivController dControl = new DashDivController();
+    private readonly IEmailSender _emailSender;
+
+    public FooterDivController(IEmailSender emailSender)
+    {
+        _emailSender = emailSender;
+    }
 
     [HttpGet("/about")]
     public IActionResult About()
@@ -25,4 +28,10 @@ public class FooterDivController : Controller
         HttpContext.Session.SetString("ActiveLink", "Contact");
         return View("Contact");
     }
+
+    // [HttpPost("/contact")]
+    // public Task<IActionResult> Contacting(Contact formData)
+    // {
+    //     return;
+    // }
 }

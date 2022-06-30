@@ -11,7 +11,6 @@ builder.Services.AddDbContext<MyContext>(options =>
 builder.Services.AddControllersWithViews();
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddSession();
-builder.Services.AddTransient<IEmailSender, SendMail>();
 var app = builder.Build();
 
 app.UseStaticFiles();

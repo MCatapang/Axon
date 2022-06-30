@@ -8,7 +8,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/style.css">
-    <script src="/script/script.js"></script>
     <title>Axon</title>
 </head>
 
@@ -19,18 +18,19 @@
             <a>Contact</a>
 
             <div class="content">
-                <form asp-action="Contacting" asp-controller="FooterDiv" class="formInputsAreaSolo" method="post">
+                <form asp-action="Contacting" asp-controller="FooterDiv" class="formInputsAreaSolo contactForm" method="post">
+                    <label asp-for="FullName"></label>
+                    <input asp-for="FullName">
+                    <span asp-validation-for="FullName"></span>
+
                     <label asp-for="EmailAddress"></label>
                     <input asp-for="EmailAddress">
-
-                    <label asp-for="FirstName"></label>
-                    <input asp-for="FirstName">
-
-                    <label asp-for="LastName"></label>
-                    <input asp-for="LastName">
+                    <span asp-validation-for="FullName"></span>
 
                     <label asp-for="Message"></label>
-                    <textarea asp-for="Message"></textarea>
+                    <textarea asp-for="Message">
+                    </textarea>
+                    <span asp-validation-for="Message"></span>
 
                     <button type="submit">Send</button>
                 </form>
@@ -38,6 +38,7 @@
         </div>
     </div>
     <partial name="_Footer">
+<script src="/script/script.js"></script>
 </body>
 
 </html>

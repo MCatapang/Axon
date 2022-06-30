@@ -1,20 +1,12 @@
 #pragma warning disable CS8618
 using Microsoft.AspNetCore.Mvc;
-// Below added using these instructions:
-// https://docs.microsoft.com/en-us/aspnet/core/security/authentication/scaffold-identity?view=aspnetcore-6.0&tabs=netcore-cli
-using Microsoft.AspNetCore.Identity.UI.Services;
+using SendGrid.Helpers.Mail;
+using SendGrid;
 using Axon.Models;
 namespace Axon.Controllers;
 
 public class FooterDivController : Controller
 {
-    private readonly IEmailSender _emailSender;
-
-    public FooterDivController(IEmailSender emailSender)
-    {
-        _emailSender = emailSender;
-    }
-
     [HttpGet("/about")]
     public IActionResult About()
     {
@@ -30,11 +22,27 @@ public class FooterDivController : Controller
     }
 
     [HttpPost("/contact")]
-    public async Task<IActionResult> Contacting(Contact contact)
+    public async Task<IActionResult> Contacting(Contact formData)
     {
-        var msg = contact.FirstName + " " + contact.Message;
-        await _emailSender.SendEmailAsync(contact.EmailAddress, "Contact Mail", msg);
-        ViewBag.ConfirmMsg = "Thanks For Your Mail";
+        if(!ModelState.IsValid)
+        {
+            return View("Contact");
+        }
+        var apiKey = Environment.GetEnvironmentVariable("SENDGRID_API_KEY");
+        var client = new SendGridClient(apiKey);
+        var msg = new SendGridMessage()
+        {
+            From = new EmailAddress("maocataptest@gmail.com", "Axon"),
+            Subject = "Contact Form",
+            PlainTextContent = $"Sender: {formData.FullName} \nSender Email: {formData.EmailAddress} \nMessage: {formData.Message}"
+        };
+        msg.AddTo(new EmailAddress("maocataptest@gmail.com", "TEST Michael Catapang"));
+        var response = await client.SendEmailAsync(msg);
+        if(!response.IsSuccessStatusCode)
+        {
+            ModelState.AddModelError("Message", "There was trouble sending your message");
+            return View("Contact");
+        }
         return View("Contact");
     }
 }

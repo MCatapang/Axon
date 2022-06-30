@@ -189,7 +189,7 @@ a:hover {
 }
 
 
-/* Register and Login */
+/* Register, Login, and Contact Forms */
 .formContainer {
     background: #e4e4e4;
     height: fit-content;
@@ -238,6 +238,7 @@ hr {
     display: grid;
     grid-template-columns: 1;
     font-size: 25px;
+    height: fit-content;
 }
 .formInputsArea > div, .formInputsAreaSolo {
     height: 800px;
@@ -252,7 +253,7 @@ hr {
     font-weight: bold;
 }
 .formInputsArea input, .formInputsArea select, 
-.formInputsAreaSolo input, .formInputsArea select {
+.formInputsAreaSolo input, .formInputsArea select, .contactForm textarea {
     width: 45%;
     border-style: solid;
     border-color: #0095ff;
@@ -282,6 +283,23 @@ form button:hover {
 form button:active {
     background-color: #ffffff;
     color: #0095ff;
+}
+.contactForm {
+    height: fit-content;
+    padding: 40px 0px 50px 0px;
+}
+.contactForm label {
+    line-height: normal;
+}
+.contactForm textarea {
+    height: 300px;
+    resize: none;
+}
+.contactForm span {
+    line-height: normal;
+}
+.contactForm button {
+    margin: 40px 0px 0px 0px;
 }
 
 

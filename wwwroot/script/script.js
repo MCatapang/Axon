@@ -44,3 +44,13 @@ moreOptions.addEventListener("click", function(){
         toggle = false;
     }
 });
+
+
+
+// if(ViewData.ModelState.IsValid && ViewData.ModelState["Error"].Errors.Count == 0) {
+//     <text>
+//         $(document).ready(function() {
+//             alert("Your message has been sent!")
+//         });
+//     </text>
+// }

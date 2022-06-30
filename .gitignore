@@ -31,3 +31,5 @@ msbuild.wrn
 
 # Custom
 appsettings.json
+obj
+bin

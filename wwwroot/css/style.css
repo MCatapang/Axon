@@ -134,6 +134,7 @@ a:hover {
 }
 .footer h3 {
     margin: 0px 30px;
+    transition: 0.25s;
 }
 
 
@@ -190,7 +191,7 @@ a:hover {
 /* Register and Login */
 .formContainer {
     background: #e4e4e4;
-    height: 150vh;
+    height: fit-content;
 }
 .formHeader {
     display: flex;
@@ -217,9 +218,10 @@ a:hover {
     filter: invert();
 }
 .formContainer > form {
-    margin: 0px 0px 100px 0px;
+    margin: 0px 0px 0px 0px;
     padding: 1%;
     width: 85%;
+    height: fit-content;
     background-color: #ffffff;
     border-radius: 8px;
 }

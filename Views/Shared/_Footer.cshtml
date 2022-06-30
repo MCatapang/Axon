@@ -1,11 +1,26 @@
+@{
+    string? ActiveLink = Context.Session.GetString("ActiveLink");
+    Dictionary<string, string> footerLinks = new Dictionary<string, string>()
+    {
+        {"About", "About"},
+        {"Contact", "Contact"}
+    };
+}
+
 <link rel="stylesheet" href="/css/style.css">
 <div class="footer">
-    <a href="/about">
-        <h3>About</h3>
-    </a>
-    <a href="/contact">
-        <h3>Contact</h3>
-    </a>
+    @foreach (var Link in footerLinks)
+    {
+        if(ActiveLink == Link.Key) {
+            <a asp-action="@Link.Value" asp-controller="FooterDiv">
+                <h3 style="color: #0095ff;">@Link.Key</h3>
+            </a>
+        } else{
+            <a asp-action="@Link.Value" asp-controller="FooterDiv">
+                <h3>@Link.Key</h3>
+            </a>
+        }
+    }
     <a href="https://github.com/MCatapang/Axon" target="_blank">
         <h3>Github</h3>
     </a>

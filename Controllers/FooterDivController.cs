@@ -15,12 +15,14 @@ public class FooterDivController : Controller
     [HttpGet("/about")]
     public IActionResult About()
     {
+        HttpContext.Session.SetString("ActiveLink", "About");
         return View("About");
     }
 
     [HttpGet("/contact")]
     public IActionResult Contact()
     {
+        HttpContext.Session.SetString("ActiveLink", "Contact");
         return View("Contact");
     }
 }

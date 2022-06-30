@@ -2,7 +2,7 @@
     Dictionary<string, string> navLinks;
     bool loggedIn = false;
     string? ActiveLink = Context.Session.GetString("ActiveLink");
-    if(ActiveLink == "Home" || ActiveLink == "Register" || ActiveLink == "Login")
+    if(new[] {"Home", "Register", "Login", "About", "Contact"}.Contains(ActiveLink))
     {
         navLinks = new Dictionary<string, string>()
         {
@@ -28,7 +28,7 @@
     <div id="navLinkContainer">
         @foreach (var Link in navLinks)
         {
-            if(ActiveLink == @Link.Key) {
+            if(ActiveLink == Link.Key) {
                 <a href="@Link.Value">
                     <h2 style="color: #0095ff;">@Link.Key</h2>
                 </a>

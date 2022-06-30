@@ -21,7 +21,7 @@ function scrollFunction() {
         document.getElementById("navLogo").style.color = "#ffffff";
         if(toggle) {
             optionsDropdown.style.top = "125px";
-            optionsDropdown.style.opacity = "100";
+            optionsDropdown.style.opacity = "1";
         }
     }
 }
@@ -32,7 +32,7 @@ window.onscroll = function() {
 moreOptions.addEventListener("click", function(){
     if(toggle == false) {
         optionsDropdown.style.top = "125px";
-        optionsDropdown.style.opacity = "100";
+        optionsDropdown.style.opacity = "1";
         moreOptions.style.transform = "rotate(180deg)";
         moreOptions.style.color = "#0095ff";
         toggle = true;
@@ -44,13 +44,3 @@ moreOptions.addEventListener("click", function(){
         toggle = false;
     }
 });
-
-
-
-// if(ViewData.ModelState.IsValid && ViewData.ModelState["Error"].Errors.Count == 0) {
-//     <text>
-//         $(document).ready(function() {
-//             alert("Your message has been sent!")
-//         });
-//     </text>
-// }

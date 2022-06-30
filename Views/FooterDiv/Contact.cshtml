@@ -1,3 +1,5 @@
+@model Contact
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,8 +19,21 @@
             <a>Contact</a>
 
             <div class="content">
-                <h1>What is Axon?</h1>
-                
+                <form asp-action="Contacting" asp-controller="FooterDiv" class="formInputsAreaSolo" method="post">
+                    <label asp-for="EmailAddress"></label>
+                    <input asp-for="EmailAddress">
+
+                    <label asp-for="FirstName"></label>
+                    <input asp-for="FirstName">
+
+                    <label asp-for="LastName"></label>
+                    <input asp-for="LastName">
+
+                    <label asp-for="Message"></label>
+                    <textarea asp-for="Message"></textarea>
+
+                    <button type="submit">Send</button>
+                </form>
             </div>
         </div>
     </div>

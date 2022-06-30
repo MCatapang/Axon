@@ -29,9 +29,12 @@ public class FooterDivController : Controller
         return View("Contact");
     }
 
-    // [HttpPost("/contact")]
-    // public Task<IActionResult> Contacting(Contact formData)
-    // {
-    //     return;
-    // }
+    [HttpPost("/contact")]
+    public async Task<IActionResult> Contacting(Contact contact)
+    {
+        var msg = contact.FirstName + " " + contact.Message;
+        await _emailSender.SendEmailAsync(contact.EmailAddress, "Contact Mail", msg);
+        ViewBag.ConfirmMsg = "Thanks For Your Mail";
+        return View("Contact");
+    }
 }

@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using Axon.Models;
 
@@ -10,6 +11,7 @@ builder.Services.AddDbContext<MyContext>(options =>
 builder.Services.AddControllersWithViews();
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddSession();
+builder.Services.AddTransient<IEmailSender, SendMail>();
 var app = builder.Build();
 
 app.UseStaticFiles();

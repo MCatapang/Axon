@@ -43,6 +43,6 @@ public class FooterDivController : Controller
             ModelState.AddModelError("Message", "There was trouble sending your message");
             return View("Contact");
         }
-        return View("Contact");
+        return RedirectToAction("Home", "Home");
     }
 }

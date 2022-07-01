@@ -236,12 +236,17 @@ hr {
     font-size: 25px;
 }
 .formInputsAreaSolo {
-    display: grid;
-    grid-template-columns: 1;
+    margin: 0px auto;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 700px;
     font-size: 25px;
     height: fit-content;
 }
-.formInputsArea > div, .formInputsAreaSolo {
+.formInputsArea > div {
     height: 800px;
     display: flex;
     flex-direction: column;

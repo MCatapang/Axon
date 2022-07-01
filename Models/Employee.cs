@@ -24,5 +24,9 @@ public class Employee : Person
     [DataType(DataType.Password)]
     public string Confirm { get; set; }
 
+    // Future: implement One-to-one(Employee to Facility) relationship
+
+    // Future: implement One-to-Many(Employee to Role) relationship
+
     public List<CareRelation> AssignedPts { get; set; } = new List<CareRelation>();
 }

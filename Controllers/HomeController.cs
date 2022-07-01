@@ -41,12 +41,17 @@ public class HomeController : Controller
     [HttpGet("/register")]
     public IActionResult Register()
     {
+        ViewBag.AllRoles = _context.Roles.ToList();
+        ViewBag.AllFacilities = _context.Facilities.ToList();
+
         if(HttpContext.Session.GetInt32("EmployeeID") != null) 
         {
             Console.WriteLine("hitting the conditional");
             return RedirectToAction("Home");
         }
         HttpContext.Session.SetString("ActiveLink", "Register");
+
+
         return View("Register");
     }
 
@@ -83,6 +88,8 @@ public class HomeController : Controller
         }
         if(!ModelState.IsValid || emptyBDay || under18) 
         {
+            ViewBag.AllRoles = _context.Roles.ToList();
+            ViewBag.AllFacilities = _context.Facilities.ToList();
             return View("Register"); 
         }
 

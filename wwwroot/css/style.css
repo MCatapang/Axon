@@ -319,9 +319,13 @@ form button:active {
     -o-background-size: cover;
     background-size: cover;
     display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
     color: #ffffff;
 }
+
 #userHeader {
     width: 100%;
     height: fit-content;
@@ -353,14 +357,25 @@ form button:active {
     height: 180px;
     border-radius: 0px 8px 8px 0px;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #393939;
+}
+#innerUserInfo {
+    margin: 0px;
+    padding: 0px;
+    width: 96%;
+    height: 135px;
+    display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    background-color: #393939;
+    background-color: #1a1a1a99;
+    border-radius: 8px;
 }
 #userName {
-    margin: 20px;
+    margin: 0px 0px 0px 20px;
     padding: 0px;
     display: flex;
     flex-direction: column;
@@ -373,8 +388,44 @@ form button:active {
     padding: 0px;
 }
 #userOther {
-    margin: 0px 40px 0px 0px;
+    margin: 0px 20px 0px 0px;
     width: fit-content;
     height: fit-content;
     text-align: right;
+}
+
+#userContent {
+    margin: 10px 0px 0px 0px;
+    width: 100%;
+    height: fit-content;
+    display: grid;
+    grid-template-columns: 2% auto auto auto 2%;
+}
+.sectionHeader {
+    background-color: #1a1a1a99;
+    margin: 20px;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+}
+.sectionHeader > h1 {
+    margin: 20px;
+}
+
+#userPatients {
+    background-color: #393939;
+    margin: 20px;
+    grid-column-start: 2;
+    grid-column-end: 4;
+    border-radius: 8px;
+    height: fit-content;
+}
+#userShift {
+    background-color: #393939;
+    margin: 20px;
+    grid-column-start: 4;
+    grid-column-end: 5;
+    border-radius: 8px;
+    height: fit-content;
 }

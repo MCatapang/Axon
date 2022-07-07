@@ -7,6 +7,8 @@ namespace Axon.Controllers;
 
 public class FooterDivController : Controller
 {
+    // ------------------------ Routes: GET
+
     [HttpGet("/about")]
     public IActionResult About()
     {
@@ -18,8 +20,16 @@ public class FooterDivController : Controller
     public IActionResult Contact()
     {
         HttpContext.Session.SetString("ActiveLink", "Contact");
+        string? successMessage = HttpContext.Session.GetString("SuccessMessage");
+        ViewBag.Message = successMessage;
+        HttpContext.Session.Clear();
         return View("Contact");
     }
+
+
+
+
+    // ------------------------ Routes: POST
 
     [HttpPost("/contact")]
     public async Task<IActionResult> Contacting(Contact formData)
@@ -43,6 +53,8 @@ public class FooterDivController : Controller
             ModelState.AddModelError("Message", "There was trouble sending your message");
             return View("Contact");
         }
-        return RedirectToAction("Home", "Home");
+        string successMessage = "Thank you for reaching out! Please expect a response within 5 business days.";
+        HttpContext.Session.SetString("SuccessMessage", successMessage);
+        return RedirectToAction("Contact");
     }
 }

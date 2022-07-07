@@ -18,22 +18,34 @@
             <a>Contact</a>
 
             <div class="content">
-                <form asp-action="Contacting" asp-controller="FooterDiv" class="formInputsAreaSolo contactForm" method="post">
-                    <label asp-for="FullName"></label>
-                    <input asp-for="FullName">
-                    <span asp-validation-for="FullName"></span>
+                @if(ViewBag.Message == null)
+                {
+                    <form asp-action="Contacting" asp-controller="FooterDiv" class="formInputsAreaSolo contactForm" method="post">
+                        <label asp-for="FullName"></label>
+                        <input asp-for="FullName">
+                        <span asp-validation-for="FullName"></span>
 
-                    <label asp-for="EmailAddress"></label>
-                    <input asp-for="EmailAddress">
-                    <span asp-validation-for="EmailAddress"></span>
+                        <label asp-for="EmailAddress"></label>
+                        <input asp-for="EmailAddress">
+                        <span asp-validation-for="EmailAddress"></span>
 
-                    <label asp-for="Message"></label>
-                    <textarea asp-for="Message">
-                    </textarea>
-                    <span asp-validation-for="Message"></span>
+                        <label asp-for="Message"></label>
+                        <textarea asp-for="Message">
+                        </textarea>
+                        <span asp-validation-for="Message"></span>
 
-                    <button type="submit">Send</button>
-                </form>
+                        <button type="submit">Send</button>
+                    </form>
+                }
+                else
+                {
+                    <h1 style="text-align: center">
+                        Thank you for reaching out!
+                        <br>
+                        You'll receive a response within
+                        5 business days.
+                    </h1>
+                }
             </div>
         </div>
     </div>

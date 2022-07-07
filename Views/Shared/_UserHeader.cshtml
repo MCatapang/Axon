@@ -1,3 +1,5 @@
+@model Employee
+
 <link rel="stylesheet" href="/css/style.css">
 <div id="userHeader" class="textShadow">
     <div id="userIconContainer">
@@ -6,11 +8,12 @@
     <div id="userInfo">
         <div id="innerUserInfo">
             <div id="userName">
-                <h1>FirstName L.</h1>
+                <h1>@Model.FirstName @Model.LastName.Substring(0, 1).</h1>
+                <h4><a>Position:</a> @Model.PrimaryRole</h4>
             </div>
             <div id="userOther">
-                <h2>Attending: Dr. Krabby Krabs</h2>
-                <h2>Shift Runtime: 00:00:00</h2>
+                <h2><a>Facility:</a> @Model.Facility</h2>
+                <h2><a>Local Time:</a> <div id="clock"></div></h2>
             </div>
         </div>
     </div>

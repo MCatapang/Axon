@@ -1,3 +1,5 @@
+@model Employee
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,9 +13,9 @@
     <partial name="_NavBar"></partial>
     <partial name="_Dropdown"></partial>
     <div class="dashboardContainer">
-        <partial name="_UserHeader"></partial>
+        <partial name="_UserHeader" model="Model"></partial>
         <div id="userContent">
-            <div id="userPatients">
+            <div id="userPatients"> @* Move into its own partial *@
                 <div class="sectionHeader">
                     <h1 class="textShadow">Assigned Patients</h1>
                 </div>
@@ -26,15 +28,58 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>LastName, FirstName</td>
-                            <td>Complaint</td>
-                            <td>Chart or Edit</td>
-                        </tr>
+                        @foreach (Patient p in ViewBag.AllPatients)
+                        {
+                            <tr>
+                                <td>@p.LastName, @p.FirstName</td>
+                                <td>@p.Complaint</td>
+                                <td><a href="/">Chart</a> or <a href="/">Edit</a></td>
+                            </tr>
+                        }
+                        @foreach (Patient p in ViewBag.AllPatients)
+                        {
+                            <tr>
+                                <td>@p.LastName, @p.FirstName</td>
+                                <td>@p.Complaint</td>
+                                <td><a href="/">Chart</a> or <a href="/">Edit</a></td>
+                            </tr>
+                        }
+                        @foreach (Patient p in ViewBag.AllPatients)
+                        {
+                            <tr>
+                                <td>@p.LastName, @p.FirstName</td>
+                                <td>@p.Complaint</td>
+                                <td><a href="/">Chart</a> or <a href="/">Edit</a></td>
+                            </tr>
+                        }
+                        @foreach (Patient p in ViewBag.AllPatients)
+                        {
+                            <tr>
+                                <td>@p.LastName, @p.FirstName</td>
+                                <td>@p.Complaint</td>
+                                <td><a href="/">Chart</a> or <a href="/">Edit</a></td>
+                            </tr>
+                        }
+                        @foreach (Patient p in ViewBag.AllPatients)
+                        {
+                            <tr>
+                                <td>@p.LastName, @p.FirstName</td>
+                                <td>@p.Complaint</td>
+                                <td><a href="/">Chart</a> or <a href="/">Edit</a></td>
+                            </tr>
+                        }
+                        @foreach (Patient p in ViewBag.AllPatients)
+                        {
+                            <tr>
+                                <td>@p.LastName, @p.FirstName</td>
+                                <td>@p.Complaint</td>
+                                <td><a href="/">Chart</a> or <a href="/">Edit</a></td>
+                            </tr>
+                        }
                     </tbody>
                 </table>
             </div>
-            <div id="userShift">
+            <div id="userShift"> @* Move into its own partial *@
                 <div class="sectionHeader">
                     <h1 class="textShadow">Shift Info</h1>
                 </div>
@@ -46,15 +91,25 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>FirstName L.</td>
-                            <td>Position</td>
-                        </tr>
+                        @foreach (Employee e in ViewBag.Shift)
+                        {
+                            <tr>
+                                <td>@e.FirstName @e.LastName.Substring(0, 1).</td>
+                                @if(e.PrimaryRole == "Medical Assistant") 
+                                {
+                                    <td>Medical Asst.</td>
+                                }
+                                else
+                                {
+                                    <td>@e.PrimaryRole</td>
+                                }
+                            </tr>
+                        }
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
 </body>
-<script src="/script/script.js"></script>
+<script src="/script/dashScript.js"></script>
 </html>

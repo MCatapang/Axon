@@ -29,10 +29,22 @@ public class HomeController : Controller
     [HttpGet("/")]
     public IActionResult Home()
     {
-        if(HttpContext.Session.GetInt32("EmployeeID") != null)
+        int? employeeID = HttpContext.Session.GetInt32("EmployeeID");
+        if(employeeID != null)
         {
+            HttpContext.Session.SetInt32("Hour", DateTime.Now.Hour);
+            HttpContext.Session.SetInt32("Minute", DateTime.Now.Minute);
+            HttpContext.Session.SetInt32("Second", DateTime.Now.Second);
             HttpContext.Session.SetString("ActiveLink", "Dashboard");
-            return View("Dashboard");
+            Employee employee = _context.Employees
+                .FirstOrDefault(e => e.EmployeeID == employeeID);
+            ViewBag.AllPatients = _context.Patients
+                .Where(p => p.Facility == employee.Facility)
+                .ToList();
+            ViewBag.Shift = _context.Employees
+                .Where(e => e.Facility == employee.Facility)
+                .ToList();
+            return View("Dashboard", employee);
         }
         HttpContext.Session.SetString("ActiveLink", "Home");
         return View("Home");

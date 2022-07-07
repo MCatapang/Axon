@@ -11,13 +11,14 @@ builder.Services.AddDbContext<MyContext>(options =>
 builder.Services.AddControllersWithViews();
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddSession();
-var app = builder.Build();
+var sendGridKey = builder.Configuration.GetSection("Keys")["SendGrid"];
+Environment.SetEnvironmentVariable("SendGridKey", sendGridKey);
 
+var app = builder.Build();
 app.UseStaticFiles();
 app.UseRouting();
 app.UseAuthorization();
 app.UseSession();
-
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}"

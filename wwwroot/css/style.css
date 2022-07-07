@@ -100,8 +100,9 @@ a:hover {
     flex-wrap: wrap;
     text-align: center;
     justify-content: space-evenly;
-    position: sticky;
+    position: fixed;
     top: -1000px;
+    right: 0px;
     border-radius: 0px 0px 8px 8px;
     z-index: 9997;
     box-shadow: 0px 10px 25px #1a1a1a99;
@@ -314,8 +315,8 @@ form button:active {
     text-shadow: 10px 10px 10px #1a1a1a99;
 }
 .dashboardContainer {
-    margin: 0px;
-    padding: 100px 0px 50px 0px;
+    margin: 0px 0px 0px 0px;
+    padding: 75px 0px 0px 0px;
     width: 100%;
     height: fit-content;
     background: url("/images/DashboardBackground.png") no-repeat center center;
@@ -332,6 +333,7 @@ form button:active {
 }
 
 #userHeader {
+    margin: 100px 0px 0px 0px;
     width: 100%;
     height: fit-content;
     display: flex;
@@ -392,11 +394,29 @@ form button:active {
     margin: 0px;
     padding: 0px;
 }
+#userName h4 {
+    margin: 0px 0px 0px 5px;
+    padding: 0px;
+    line-height: normal;
+}
+#userName a, #userOther a {
+    color:#a4d9ff;
+}
 #userOther {
     margin: 0px 20px 0px 0px;
     width: fit-content;
     height: fit-content;
     text-align: right;
+}
+#userOther h2:last-child {
+    display: flex;
+    justify-content: space-between;
+}
+#userOther div {
+    margin: 0px;
+    padding: 0px;
+    width: fit-content;
+    height: fit-content;
 }
 
 #userContent {
@@ -451,12 +471,14 @@ form button:active {
 #userPatients table , #userShift table{
     text-align: center;
 }
-#userPatients table th:first-child, #userPatients table td:first-child,
-#userShift table th:first-child, #userShift table td:first-child {
+#userPatients table td:first-child, #userShift table td:first-child {
     width: 45%;
     text-align: left;
 }
 #userPatients table th:last-child, #userPatients table td:last-child,
 #userShift table th:last-child, #userShift table td:last-child {
     width: 20%;
+}
+#userPatients thead, #userShift thead {
+    color: #a4d9ff;
 }

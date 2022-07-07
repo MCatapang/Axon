@@ -28,7 +28,7 @@ public class FooterDivController : Controller
         {
             return View("Contact");
         }
-        var apiKey = Environment.GetEnvironmentVariable("SENDGRID_API_KEY");
+        var apiKey = Environment.GetEnvironmentVariable("SendGridKey");
         var client = new SendGridClient(apiKey);
         var msg = new SendGridMessage()
         {

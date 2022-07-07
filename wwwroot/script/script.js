@@ -1,5 +1,3 @@
-let moreOptions = document.getElementById("moreOptions");
-let optionsDropdown = document.getElementById("optionsDropdown");
 let navLinkContainer = document.getElementById("navLinkContainer");
 let navBar = document.getElementById("navBar");
 let toggle = false;
@@ -28,19 +26,3 @@ function scrollFunction() {
 window.onscroll = function() {
     scrollFunction();
 }
-
-moreOptions.addEventListener("click", function(){
-    if(toggle == false) {
-        optionsDropdown.style.top = "125px";
-        optionsDropdown.style.opacity = "1";
-        moreOptions.style.transform = "rotate(180deg)";
-        moreOptions.style.color = "#0095ff";
-        toggle = true;
-    } else {
-        optionsDropdown.style.top = "-100px";
-        optionsDropdown.style.opacity = "0";
-        moreOptions.style.transform = "";
-        moreOptions.style.color = "#ffffff";
-        toggle = false;
-    }
-});

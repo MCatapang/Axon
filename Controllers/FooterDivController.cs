@@ -19,10 +19,10 @@ public class FooterDivController : Controller
     [HttpGet("/contact")]
     public IActionResult Contact()
     {
-        HttpContext.Session.SetString("ActiveLink", "Contact");
         string? successMessage = HttpContext.Session.GetString("SuccessMessage");
         ViewBag.Message = successMessage;
         HttpContext.Session.Clear();
+        HttpContext.Session.SetString("ActiveLink", "Contact");
         return View("Contact");
     }
 

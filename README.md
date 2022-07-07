@@ -9,3 +9,7 @@
 - Partials
 - SendGrid API
 - Azure Key Vault
+
+## To-Do
+- Create success alert for Contact form submission send
+- Image upload for profile picture

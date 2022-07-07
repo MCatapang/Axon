@@ -88,6 +88,8 @@ public class HomeController : Controller
     {
         bool emptyBDay = ModelState["Birthday"].AttemptedValue == "";
         bool under18 = formData.Birthday.AddYears(18) > DateTime.Now;
+        bool emailInDB = null != _context.Employees
+            .FirstOrDefault(e => e.EmailAddress == formData.EmailAddress);
 
         if(emptyBDay)
         {
@@ -98,8 +100,14 @@ public class HomeController : Controller
         {
             ModelState.AddModelError("Birthday", "Must be at least 18 years old!");
         }
-        if(!ModelState.IsValid || emptyBDay || under18) 
+        if(emailInDB)
         {
+            Console.WriteLine("\n \n \n \n \n email is in DB!");
+            ModelState.AddModelError("EmailAddress", "Email is already in use!");
+        }
+        if(!ModelState.IsValid || emptyBDay || under18 || emailInDB) 
+        {
+            Console.WriteLine("\n \n \n \n \n this is getting hit");
             ViewBag.AllRoles = _context.Roles.ToList();
             ViewBag.AllFacilities = _context.Facilities.ToList();
             return View("Register"); 

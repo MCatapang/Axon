@@ -1,4 +1,4 @@
-#pragma warning disable
+#pragma warning disable CS8618
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;

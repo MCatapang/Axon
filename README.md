@@ -11,4 +11,13 @@
 - Azure Key Vault
 
 ## To-Do
-- Image upload for profile picture
+- [ ] Build Views
+  - [ ] All Patients
+  - [ ] One Patient (Edit)
+  - [ ] Chart Form
+  - [ ] All Coworkers (in the same facility)
+  - [ ] Settings
+- [ ] Profile Picture Upload
+- [ ] Replace divs with partials
+  - [ ] \_UserPatient.cshtml
+  - [ ] \_UserShift.cshtml

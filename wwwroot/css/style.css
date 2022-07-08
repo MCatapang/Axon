@@ -426,6 +426,9 @@ form button:active {
     display: grid;
     grid-template-columns: 2% auto auto auto 2%;
 }
+#userContent table {
+    font-size: 20px;
+}
 #userPatients {
     background-color: #393939;
     margin: 20px;
@@ -481,4 +484,11 @@ form button:active {
 }
 #userPatients thead, #userShift thead {
     color: #a4d9ff;
+}
+#userPatients a {
+    color: #ffcf8c;
+}
+#userPatients a:hover {
+    color: #0095ff;
+    transition: 0.25s;
 }

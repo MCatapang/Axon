@@ -15,62 +15,8 @@
     <div class="dashboardContainer">
         <partial name="_UserHeader" model="Model"></partial>
         <div id="userContent">
-
-            <div id="userPatients"> @* Move into its own partial *@
-                <div class="sectionHeader">
-                    <h1 class="textShadow">Assigned Patients</h1>
-                </div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Chief Complaint</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (Patient p in ViewBag.AllPatients)
-                        {
-                            <tr>
-                                <td>@p.LastName, @p.FirstName</td>
-                                <td>@p.Complaint</td>
-                                <td><a href="/chart/@p.PatientID">Chart</a> or <a href="/patients/@p.PatientID">Edit</a></td>
-                            </tr>
-                        }
-                    </tbody>
-                </table>
-            </div>
-
-            <div id="userShift"> @* Move into its own partial *@
-                <div class="sectionHeader">
-                    <h1 class="textShadow">Shift Info</h1>
-                </div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Position</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (Employee e in ViewBag.Shift)
-                        {
-                            <tr>
-                                <td>@e.FirstName @e.LastName.Substring(0, 1).</td>
-                                @if(e.PrimaryRole == "Medical Assistant") 
-                                {
-                                    <td>Medical Asst.</td>
-                                }
-                                else
-                                {
-                                    <td>@e.PrimaryRole</td>
-                                }
-                            </tr>
-                        }
-                    </tbody>
-                </table>
-            </div>
-
+            <partial name="/Views/Shared/_UserPatient.cshtml">
+            <partial name="/Views/Shared/_UserShift.cshtml">
         </div>
     </div>
 </body>

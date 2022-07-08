@@ -1,0 +1,29 @@
+<div id="userShift">
+    <div class="sectionHeader">
+        <h1 class="textShadow">Shift Info</h1>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Position</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Employee e in ViewBag.Shift)
+            {
+                <tr>
+                    <td>@e.FirstName @e.LastName.Substring(0, 1).</td>
+                    @if (e.PrimaryRole == "Medical Assistant")
+                    {
+                        <td>Medical Asst.</td>
+                    }
+                    else
+                    {
+                        <td>@e.PrimaryRole</td>
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,24 @@
+<div id="userPatients">
+    <div class="sectionHeader">
+        <h1 class="textShadow">Assigned Patients</h1>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Chief Complaint</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Patient p in ViewBag.AllPatients)
+            {
+                <tr>
+                    <td>@p.LastName, @p.FirstName</td>
+                    <td>@p.Complaint</td>
+                    <td><a href="/chart/@p.PatientID">Chart</a> or <a href="/patients/@p.PatientID">Edit</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

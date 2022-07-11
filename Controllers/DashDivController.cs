@@ -30,7 +30,7 @@ public class DashDivController : Controller
             .FirstOrDefault(e => e.EmployeeID == employeeID);
         if(employee == null)
         {
-            return RedirectToAction("Home", "HomeController");
+            return RedirectToAction("Home", "Home");
         }
 
         HttpContext.Session.SetString("ActiveLink", "Dashboard");
@@ -60,6 +60,12 @@ public class DashDivController : Controller
             .ToList();
 
         return View("/Views/DashDiv/AllPatients.cshtml", employee);
+    }
+
+    [HttpGet("/patients/{ptID}")]
+    public IActionResult OnePatient(int ptID)
+    {
+        return View("/Views/DashDiv/OnePatient.cshtml");
     }
 
     [HttpGet("/logout")]

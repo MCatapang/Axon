@@ -12,7 +12,7 @@
 
 ## To-Do
 - [ ] Build Views
-  - [ ] All Patients
+  - [x] All Patients
   - [ ] One Patient (Edit)
   - [ ] Chart Form
   - [ ] All Coworkers (in the same facility)

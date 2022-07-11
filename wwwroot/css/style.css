@@ -464,7 +464,7 @@ form button:active {
 }
 #userPatients table td:first-child, #userShift table td:first-child {
     width: 45%;
-    text-align: left;
+    text-align: center;
 }
 #userPatients table th:last-child, #userPatients table td:last-child,
 #userShift table th:last-child, #userShift table td:last-child {

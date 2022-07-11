@@ -1,0 +1,60 @@
+@model Employee
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Axon</title>
+</head>
+<body>
+    <partial name="_NavBar"></partial>
+    <partial name="_Dropdown"></partial>
+    <div class="genContainer">
+        <partial name="_UserHeader" model="Model"></partial>
+        <div class="section">
+            <div class="sectionHeader">
+                <h1>
+                    Patient List
+                </h1>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Complaint</th>
+                        <th>Address</th>
+                        <th>Assigned Employees</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (Patient p in ViewBag.AllPatients)
+                    {
+                        <tr>
+                            <td>@p.LastName, @p.FirstName</td>
+                            <td>@p.Complaint</td>
+                            <td>@p.Address</td>
+                            <td>
+                                @if(p.AssignedEmployees.Count == 0)
+                                {
+                                    <li>none</li>
+                                }
+                                else
+                                {
+                                    @foreach (var e in p.AssignedEmployees)
+                                    {
+                                        <li>@e.Employee</li>
+                                    }
+                                }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+<script src="/script/dashScript.js"></script>
+</html>

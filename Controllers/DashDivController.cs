@@ -17,19 +17,23 @@ public class DashDivController : Controller
         _context = context;
     }
 
+
+
+
+    // ------------------------ Routes: GET
+
     [HttpGet("/dashboard")]
     public IActionResult Dashboard()
     {
         int? employeeID = HttpContext.Session.GetInt32("EmployeeID");
-        HttpContext.Session.SetString("ActiveLink", "Dashboard");
         Employee? employee = _context.Employees
             .FirstOrDefault(e => e.EmployeeID == employeeID);
-
-        if(employee == null) 
+        if(employee == null)
         {
             return RedirectToAction("Home", "HomeController");
         }
 
+        HttpContext.Session.SetString("ActiveLink", "Dashboard");
         ViewBag.AllPatients = _context.Patients
             .Where(p => p.Facility == employee.Facility)
             .ToList();
@@ -37,6 +41,25 @@ public class DashDivController : Controller
             .Where(e => e.Facility == employee.Facility)
             .ToList();
         return View("/Views/DashDiv/Dashboard.cshtml", employee);
+    }
+
+    [HttpGet("/patients")]
+    public IActionResult AllPatients()
+    {
+        int? employeeID = HttpContext.Session.GetInt32("EmployeeID");
+        Employee? employee = _context.Employees
+            .FirstOrDefault(e => e.EmployeeID == employeeID);
+        if(employee == null)
+        {
+            return RedirectToAction("Home", "HomeController");
+        }
+
+        HttpContext.Session.SetString("ActiveLink", "All Patients");
+        ViewBag.AllPatients = _context.Patients
+            .Where(p => p.Facility == employee.Facility)
+            .ToList();
+
+        return View("/Views/DashDiv/AllPatients.cshtml", employee);
     }
 
     [HttpGet("/logout")]

@@ -21,3 +21,9 @@
 - [ ] Replace divs with partials
   - [ ] \_UserPatient.cshtml
   - [ ] \_UserShift.cshtml
+
+
+## Future Refactoring
+- Changed _NavBar.cshtml hrefs to asp html attributes (e.g., asp-action)
+- Make consistent passes from controller to views (e.g., use ViewBag and model for diff. things)
+- Make code more DRY

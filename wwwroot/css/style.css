@@ -506,6 +506,26 @@ form button:active {
 
     color: #ffffff;
 }
+.genContainerNoUH {
+    margin: 0px 0px 0px 0px;
+    padding: 150px 0px 0px 0px;
+    width: 100%;
+    height: fit-content;
+
+    background: url("/images/DashboardBackground.png") no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+    color: #ffffff;
+}
 .section {
     margin: 30px 0px 30px 0px;
     padding: 0px;
@@ -537,7 +557,7 @@ form button:active {
     margin: 20px;
 }
 
-.section table {
+.section table, .sectionContent {
     margin: 0px 0px 25px 0px;
     padding: 0px;
     width: 85%;
@@ -548,4 +568,39 @@ form button:active {
 }
 .section table thead {
     color: #a4d9ff;
+}
+.section a {
+    color: #ffe3bb;
+}
+.section a:hover {
+    color: #0095ff;
+    transition: 0.25s;
+}
+
+.sectionPatient {
+    margin: 0px 0px 20px 0px;
+    padding: 0px;
+    width: 85%;
+    height: fit-content;
+
+    font-size: 25px;
+}
+.sectionForm {
+    margin: 0px;
+    padding: 0px;
+    width: 85%;
+    height: fit-content;
+
+    background-color: red;
+}
+
+.buttonEdit {
+    margin: 0px;
+    padding: 0px;
+    width: 50px;
+    height: fit-content;
+
+    background-color: #ffe3bb;
+
+    font-size: 15px;
 }

@@ -33,7 +33,11 @@
                     @foreach (Patient p in ViewBag.AllPatients)
                     {
                         <tr>
-                            <td>@p.LastName, @p.FirstName</td>
+                            <td>
+                                    <a asp-action="OnePatient" asp-controller="DashDiv" asp-route-ptID="@p.PatientID">
+                                        @p.LastName, @p.FirstName
+                                    </a>
+                            </td>
                             <td>@p.Complaint</td>
                             <td>@p.Address</td>
                             <td>

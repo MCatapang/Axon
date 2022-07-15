@@ -65,6 +65,7 @@ public class DashDivController : Controller
     [HttpGet("/patients/{ptID}")]
     public IActionResult OnePatient(int ptID)
     {
+        HttpContext.Session.SetString("ActiveLink", "None");
         Patient? patient = _context.Patients
             .FirstOrDefault(p => p.PatientID == ptID);
         return View("/Views/DashDiv/OnePatient.cshtml", patient);

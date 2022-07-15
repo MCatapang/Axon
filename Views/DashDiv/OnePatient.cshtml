@@ -18,6 +18,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/style.css">
+    <script src="/script/dashScript.js" defer></script>
     <title>Axon</title>
 </head>
 <body>
@@ -27,7 +28,7 @@
         <div class="section">
             <div class="sectionHeader">
                 <h1>@Model.LastName, @Model.FirstName</h1>
-                <button class="buttonEdit">Edit</button>
+                <button class="buttonEdit" id="formPopUpButton">Edit</button>
             </div>
 
             <table>
@@ -49,12 +50,12 @@
             </table>
         </div>
 
-        <form class="section" asp-action="Editing" asp-controller="DashDiv" 
+        <form class="section" id="formPopUp" asp-action="Editing" asp-controller="DashDiv" 
         asp-route-ptID="@Model.PatientID" method="post">
             <div class="sectionHeader">
                 <h1>Edit Patient Info</h1>
             </div>
-            <div class="sectionContent">
+            <div class="sectionContent formContent">
                 <label asp-for="@Model.FirstName"></label>
                 <input asp-for="@Model.FirstName">
                 <span asp-validation-for="@Model.FirstName"></span>
@@ -79,11 +80,10 @@
                 <input asp-for="@Model.EmailAddress">
                 <span asp-validation-for="@Model.EmailAddress"></span>
 
-                <button type="submit" value="Edit">
+                <input type="submit" value="Edit">
             </div>
         </form>
 
     </div>
 </body>
-<script src="/script/dashScript.js"></script>
 </html>

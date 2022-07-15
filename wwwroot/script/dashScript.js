@@ -2,7 +2,10 @@ let moreOptions = document.getElementById("moreOptions");
 let optionsDropdown = document.getElementById("optionsDropdown");
 let navLinkContainer = document.getElementById("navLinkContainer");
 let navBar = document.getElementById("navBar");
-let toggle = false;
+let formPopUpButton = document.getElementById("formPopUpButton");
+let formPopUp = document.getElementById("formPopUp");
+let toggleDropdown = false;
+let togglePopUpForm = false;
 
 function scrollFunction() {
     if(document.body.scrollTop > 40 || document.documentElement.scrollTop > 40) {
@@ -10,7 +13,7 @@ function scrollFunction() {
         document.getElementById("navLinkContainer").style.transform = "translate(500px)";
         document.getElementById("navLogo").style.fontSize = "25px";
         document.getElementById("navLogo").style.color = "#0095ff";
-        if(toggle) {
+        if(toggleDropdown) {
             optionsDropdown.style.top = "-300px";
             optionsDropdown.style.opacity = "0";
         }
@@ -19,7 +22,7 @@ function scrollFunction() {
         document.getElementById("navLinkContainer").style.transform = "translate(0px)";
         document.getElementById("navLogo").style.fontSize = "75px";
         document.getElementById("navLogo").style.color = "#ffffff";
-        if(toggle) {
+        if(toggleDropdown) {
             optionsDropdown.style.top = "125px";
             optionsDropdown.style.opacity = "1";
         }
@@ -29,19 +32,22 @@ window.onscroll = function() {
     scrollFunction();
 }
 
+
+
+
 moreOptions.addEventListener("click", function(){
-    if(toggle == false) {
+    if(toggleDropdown == false) {
         optionsDropdown.style.top = "125px";
         optionsDropdown.style.opacity = "1";
         moreOptions.style.transform = "rotate(180deg)";
         moreOptions.style.color = "#0095ff";
-        toggle = true;
+        toggleDropdown = true;
     } else {
         optionsDropdown.style.top = "-100px";
         optionsDropdown.style.opacity = "0";
         moreOptions.style.transform = "";
         moreOptions.style.color = "#ffffff";
-        toggle = false;
+        toggleDropdown = false;
     }
 });
 
@@ -84,3 +90,15 @@ function setTime() {
     // Currently setting time to 
     document.getElementById("clock").innerText = end.toTimeString();
 }
+
+formPopUpButton.addEventListener("click", function(){
+    console.log("Hellooooo");
+    if(togglePopUpForm == false) {
+        console.log("it's false");
+        formPopUp.style.display = "flex";
+        togglePopUpForm = true;
+    } else {
+        formPopUp.style.display = "none";
+        togglePopUpForm = false;
+    }
+});

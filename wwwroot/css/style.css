@@ -315,10 +315,11 @@ form button:active {
     text-shadow: 10px 10px 10px #1a1a1a99;
 }
 .dashboardContainer {
-    margin: 0px 0px 0px 0px;
-    padding: 75px 0px 0px 0px;
+    margin: 0px;
+    padding: 150px 0px 0px 0px;
     width: 100%;
     height: fit-content;
+    min-height: 100%;
     background: url("/images/DashboardBackground.png") no-repeat center center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -327,13 +328,12 @@ form button:active {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    justify-content: center;
     align-items: center;
     color: #ffffff;
 }
 
 #userHeader {
-    margin: 100px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
     width: 100%;
     height: fit-content;
     display: flex;
@@ -488,9 +488,10 @@ form button:active {
 
 .genContainer {
     margin: 0px 0px 0px 0px;
-    padding: 75px 0px 0px 0px;
+    padding: 150px 0px 0px 0px;
     width: 100%;
     height: fit-content;
+    min-height: 100%;
 
     background: url("/images/DashboardBackground.png") no-repeat center center;
     -webkit-background-size: cover;
@@ -501,16 +502,16 @@ form button:active {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    justify-content: center;
     align-items: center;
 
     color: #ffffff;
 }
 .genContainerNoUH {
-    margin: 0px 0px 0px 0px;
+    margin: 0px;
     padding: 150px 0px 0px 0px;
     width: 100%;
     height: fit-content;
+    min-height: 100%;
 
     background: url("/images/DashboardBackground.png") no-repeat center center;
     -webkit-background-size: cover;
@@ -521,7 +522,6 @@ form button:active {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    justify-content: center;
     align-items: center;
 
     color: #ffffff;
@@ -603,4 +603,38 @@ form button:active {
     background-color: #ffe3bb;
 
     font-size: 15px;
+}
+
+#formPopUp {
+    display: none;
+}
+.formContent {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+    justify-content: center;
+    align-items: center;
+}
+.formContent span {
+    margin: 0px 0px 20px 0px;
+}
+.formContent label {
+    margin: 0px 0px 2.5px 0px;
+}
+.formContent input {
+    margin: 0px;
+    padding: 0px;
+
+    border-radius: 8px;
+
+    font-size: 20px;
+}
+.formContent input[type=submit] {
+    margin: 20px 0px 0px 0px;
+    padding: 0px;
+    width: 100px;
+    height: 40px;
+
+    background-color: #0095ff;
 }

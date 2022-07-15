@@ -165,6 +165,11 @@ public class DashDivController : Controller
                 p.LastName == formData.LastName &&
                 p.Birthday == formData.Birthday
             ));
+        if(newPt == null)
+        {
+            ModelState.AddModelError("FirstName", "An error was encountered");
+            return View("AddPatient");
+        }
         return RedirectToAction("OnePatient", new {ptID = newPt.PatientID});
     }
 }

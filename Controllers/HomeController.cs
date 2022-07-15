@@ -73,6 +73,13 @@ public class HomeController : Controller
     [HttpPost("/register")]
     public IActionResult Registering(Employee formData)
     {
+        if(!ModelState.IsValid)
+        {
+            ViewBag.AllRoles = _context.Roles.ToList();
+            ViewBag.AllFacilities = _context.Facilities.ToList();
+            return View("Register");
+        }
+
         DateTime bDayConvert = (DateTime)formData.Birthday;
 
         bool emptyBDay = ModelState["Birthday"].AttemptedValue == "";
@@ -93,7 +100,7 @@ public class HomeController : Controller
         {
             ModelState.AddModelError("EmailAddress", "Email is already in use!");
         }
-        if(!ModelState.IsValid || emptyBDay || under18 || emailInDB) 
+        if(emptyBDay || under18 || emailInDB) 
         {
             ViewBag.AllRoles = _context.Roles.ToList();
             ViewBag.AllFacilities = _context.Facilities.ToList();
@@ -120,6 +127,17 @@ public class HomeController : Controller
             ModelState.AddModelError("PasswordLogin", "Invalid Email/Password");
             return View("Login");
         }
+
+        PasswordHasher<Employee> Hasher = new PasswordHasher<Employee>();
+        PasswordVerificationResult result = Hasher
+            .VerifyHashedPassword(retrieved, retrieved.Password, formData.PasswordLogin);
+        if(result == 0)
+        {
+            ModelState.AddModelError("EmailLogin", "Invalid Email/Password");
+            ModelState.AddModelError("PasswordLogin", "Invalid Email/Password");
+            return View("Login");
+        }
+
         HttpContext.Session.SetInt32("EmployeeID", retrieved.EmployeeID);
         return RedirectToAction("Home");
     }

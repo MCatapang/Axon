@@ -14,7 +14,7 @@
 - [ ] Build Views
   - [x] All Patients
   - [x] One Patient (Edit)
-  - [ ] Add Patient
+  - [x] Add Patient
   - [ ] Add Chart (in the same facility)
 - [x] Replace divs with partials
   - [x] \_UserPatient.cshtml

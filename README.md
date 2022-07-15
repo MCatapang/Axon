@@ -10,18 +10,19 @@
 - SendGrid API
 - Azure Key Vault
 
-## To-Do
+## To-Do (MVC)
 - [ ] Build Views
   - [x] All Patients
-  - [ ] One Patient (Edit)
-  - [ ] Chart Form
-  - [ ] All Coworkers (in the same facility)
-  - [ ] Settings
-- [ ] Profile Picture Upload
-- [ ] Replace divs with partials
-  - [ ] \_UserPatient.cshtml
-  - [ ] \_UserShift.cshtml
+  - [x] One Patient (Edit)
+  - [ ] Add Patient
+  - [ ] Add Chart (in the same facility)
+- [x] Replace divs with partials
+  - [x] \_UserPatient.cshtml
+  - [x] \_UserShift.cshtml
 
+## Potential Features
+- Settings (e.g., change user email and password)
+- Profile picture upload
 
 ## Future Refactoring
 - Changed _NavBar.cshtml hrefs to asp html attributes (e.g., asp-action)

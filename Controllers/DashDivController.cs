@@ -88,7 +88,6 @@ public class DashDivController : Controller
     {
         Patient? ptInDB = _context.Patients
             .FirstOrDefault(p => p.PatientID == ptID);
-        formData.Facility = ptInDB.Facility;
 
         if(ptInDB == null || !ModelState.IsValid)
         {

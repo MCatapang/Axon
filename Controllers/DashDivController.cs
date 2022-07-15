@@ -71,6 +71,12 @@ public class DashDivController : Controller
         return View("/Views/DashDiv/OnePatient.cshtml", patient);
     }
 
+    [HttpGet("/patients/add")]
+    public IActionResult AddPatient()
+    {
+        return View("/Views/DashDiv/AddPatient.cshtml");
+    }
+
     [HttpGet("/logout")]
     public IActionResult Logout()
     {

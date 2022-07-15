@@ -1,0 +1,53 @@
+@model Patient
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/script/dashScript.js" defer></script>
+    <title>Axon</title>
+</head>
+<body>
+    <partial name="_NavBar"></partial>
+    <partial name="_Dropdown"></partial>
+    <div class="genContainerNoUH">
+        <form class="section" asp-action="Adding" 
+        asp-controller="DashDiv" method="post">
+            <div class="sectionHeader">
+                <h1>Add Patient</h1>
+            </div>
+            <div class="sectionContent formContent">
+                <label asp-for="FirstName"></label>
+                <input asp-for="FirstName">
+                <span asp-validation-for="FirstName"></span>
+
+                <label asp-for="LastName"></label>
+                <input asp-for="LastName">
+                <span asp-validation-for="LastName"></span>
+
+                <label asp-for="Complaint"></label>
+                <input asp-for="Complaint">
+                <span asp-validation-for="Complaint"></span>
+
+                <label asp-for="Birthday"></label>
+                <input asp-for="Birthday">
+                <span asp-validation-for="Birthday"></span>
+
+                <label asp-for="Address"></label>
+                <input asp-for="Address">
+                <span asp-validation-for="Address"></span>
+
+                <label asp-for="EmailAddress"></label>
+                <input asp-for="EmailAddress">
+                <span asp-validation-for="EmailAddress"></span>
+
+                <input type="submit" value="Add">
+            </div>
+        </form>
+
+    </div>
+</body>
+</html>

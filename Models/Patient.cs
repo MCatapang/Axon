@@ -20,5 +20,7 @@ public class Patient : Person
     [Display(Name = "Email Test")]
     public override string? EmailAddress { get; set; }
 
+    public List<Chart> ChartEntries { get; set; } = new List<Chart>();
+
     public List<CareRelation> AssignedEmployees { get; set; } = new List<CareRelation>();
 }

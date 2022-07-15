@@ -39,5 +39,7 @@ public class Employee : Person
 
     // Future: implement One-to-Many(Employee to Role) relationship
 
+    public List<Chart> ChartEntries { get; set; } = new List<Chart>();
+
     public List<CareRelation> AssignedPts { get; set; } = new List<CareRelation>();
 }

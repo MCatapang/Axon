@@ -77,4 +77,38 @@ public class DashDivController : Controller
         HttpContext.Session.Clear();
         return RedirectToAction("Home", "Home");
     }
+
+
+
+
+    // ------------------------ Routes: POST
+
+    [HttpPost("/patients/{ptID}")]
+    public IActionResult Editing(int ptID, Patient formData)
+    {
+        Patient? ptInDB = _context.Patients
+            .FirstOrDefault(p => p.PatientID == ptID);
+        formData.Facility = ptInDB.Facility;
+
+        if(ptInDB == null || !ModelState.IsValid)
+        {
+            HttpContext.Session.SetString("anyUpdateError", "yes");
+            return View("/Views/DashDiv/OnePatient.cshtml", ptInDB);
+        }
+
+        HttpContext.Session.SetString("anyUpdateError", "no");
+
+        ptInDB.FirstName = formData.FirstName;
+        ptInDB.LastName = formData.LastName;
+        ptInDB.Complaint = formData.Complaint;
+        ptInDB.Birthday = formData.Birthday;
+        ptInDB.Address = formData.Address;
+        ptInDB.EmailAddress = formData.EmailAddress;
+        ptInDB.UpdatedAt = DateTime.Now;
+
+        _context.Patients.Update(ptInDB);
+        _context.SaveChanges();
+
+        return View("OnePatient", ptInDB);
+    }
 }

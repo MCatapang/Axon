@@ -1,11 +1,19 @@
+@{
+    #pragma warning disable
+}
 @model Patient
 @{
+    DateTime bDayMod = new DateTime(0001, 01, 01);
+    if(Model.Birthday != null)
+    {
+        bDayMod = (DateTime)Model.Birthday;
+    }
     Dictionary<string, string> modelInfo = new Dictionary<string, string>()
     {
         {"Complaint", @Model.Complaint},
-        {"Birthday", @Model.Birthday.ToShortDateString()},
-        {"Address", @Model.Address},
-        {"Email Address", @Model.EmailAddress},
+        {"Birthday", @bDayMod != new DateTime(0001, 01, 01)? bDayMod.ToShortDateString() : "None"},
+        {"Address", @Model.Address != null ? Model.Address : "None"},
+        {"Email Address", @Model.EmailAddress != null ? Model.EmailAddress : "None"},
         {"File Created At", $"{@Model.CreatedAt.ToShortDateString()} at {@Model.CreatedAt.ToShortTimeString()}"},
         {"File Updated At", $"{@Model.UpdatedAt.ToShortDateString()} at {@Model.UpdatedAt.ToShortTimeString()}"}
     };

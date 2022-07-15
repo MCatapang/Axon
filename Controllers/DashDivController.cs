@@ -66,14 +66,27 @@ public class DashDivController : Controller
     public IActionResult OnePatient(int ptID)
     {
         HttpContext.Session.SetString("ActiveLink", "None");
+
         Patient? patient = _context.Patients
             .FirstOrDefault(p => p.PatientID == ptID);
+
         return View("/Views/DashDiv/OnePatient.cshtml", patient);
     }
 
     [HttpGet("/patients/add")]
     public IActionResult AddPatient()
     {
+        int? employeeID = HttpContext.Session.GetInt32("EmployeeID");
+        Employee? loggedInUser = _context.Employees
+            .FirstOrDefault(e => e.EmployeeID == employeeID);
+        if(loggedInUser == null)
+        {
+            return RedirectToAction("Home", "Home");
+        }
+        ViewBag.Facility = loggedInUser.Facility;
+
+        HttpContext.Session.SetString("ActiveLink", "Add Patient");
+
         return View("/Views/DashDiv/AddPatient.cshtml");
     }
 
@@ -115,5 +128,43 @@ public class DashDivController : Controller
         _context.SaveChanges();
 
         return View("OnePatient", ptInDB);
+    }
+
+    [HttpPost("/patients/add")]
+    public IActionResult Adding(Patient formData)
+    {
+        int? employeeID = HttpContext.Session.GetInt32("EmployeeID");
+
+        Patient? ptInDB = _context.Patients
+            .FirstOrDefault(p => 
+            (
+                p.FirstName == formData.FirstName &&
+                p.LastName == formData.LastName &&
+                p.Birthday == formData.Birthday
+            ));
+        Employee? loggedInUser = _context.Employees
+            .FirstOrDefault(e => e.EmployeeID == employeeID);
+
+        if(ptInDB != null) 
+        {
+            ModelState.AddModelError("FirstName", "Form entry is a duplicate");
+        }
+        if(!ModelState.IsValid && loggedInUser != null)
+        {
+            ViewBag.Facility = loggedInUser.Facility;
+            return View("AddPatient");
+        }
+
+        _context.Patients.Add(formData);
+        _context.SaveChanges();
+
+        Patient? newPt = _context.Patients
+            .FirstOrDefault(p => 
+            (
+                p.FirstName == formData.FirstName &&
+                p.LastName == formData.LastName &&
+                p.Birthday == formData.Birthday
+            ));
+        return RedirectToAction("OnePatient", new {ptID = newPt.PatientID});
     }
 }

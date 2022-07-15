@@ -13,6 +13,17 @@ public class Employee : Person
     public string PrimaryRole { get; set; }
 
     [Required(ErrorMessage = "Field can't be empty!")]
+    [MinLength(2, ErrorMessage = "Must be at least 2 characters!")]
+    public override string? Address { get; set; }
+
+    [Required(ErrorMessage = "Field can't be empty!")]
+    public override DateTime? Birthday { get; set; }
+
+    [Required(ErrorMessage = "Field can't be empty!")]
+    [DataType(DataType.EmailAddress)]
+    public override string? EmailAddress { get; set; }
+
+    [Required(ErrorMessage = "Field can't be empty!")]
     [MinLength(8, ErrorMessage = "Must be at least 8 characters!")]
     [DataType(DataType.Password)]
     public string Password { get; set; }

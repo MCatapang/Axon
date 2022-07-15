@@ -15,22 +15,17 @@ public class Person
     [Display(Name = "Last Name")]
     public string LastName { get; set; }
 
-    [Required(ErrorMessage = "Field can't be empty!")]
-    [MinLength(2, ErrorMessage = "Must be at least 2 characters!")]
     [Display(Name = "Home Address")]
-    public virtual string Address { get; set; }
+    public virtual string? Address { get; set; }
 
-    [Required(ErrorMessage = "Field can't be empty!")]
     [DataType(DataType.Date)]
-    public virtual DateTime Birthday { get; set; }
+    public virtual DateTime? Birthday { get; set; }
 
     [Required(ErrorMessage = "Field can't be empty!")]
     public string Facility { get; set; }
 
-    [Required(ErrorMessage = "Field can't be empty!")]
-    [DataType(DataType.EmailAddress)]
     [Display(Name = "Email Address")]
-    public virtual string EmailAddress { get; set; }
+    public virtual string? EmailAddress { get; set; }
 
     [Required]
     public DateTime CreatedAt { get; set; } = DateTime.Now;

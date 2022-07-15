@@ -11,11 +11,14 @@ public class Patient : Person
     [Required(ErrorMessage = "Field can't be empty!")]
     public string Complaint { get; set; }
 
-    public override string Address { get; set; }
+    [Display(Name = "Home Address")]
+    public override string? Address { get; set; }
 
-    public override DateTime Birthday { get; set; }
+    [DataType(DataType.Date)]
+    public override DateTime? Birthday { get; set; }
 
-    public override string EmailAddress { get; set; }
+    [Display(Name = "Email Test")]
+    public override string? EmailAddress { get; set; }
 
     public List<CareRelation> AssignedEmployees { get; set; } = new List<CareRelation>();
 }

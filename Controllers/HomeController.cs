@@ -46,7 +46,6 @@ public class HomeController : Controller
 
         if(HttpContext.Session.GetInt32("EmployeeID") != null) 
         {
-            Console.WriteLine("hitting the conditional");
             return RedirectToAction("Home");
         }
         HttpContext.Session.SetString("ActiveLink", "Register");
@@ -74,8 +73,10 @@ public class HomeController : Controller
     [HttpPost("/register")]
     public IActionResult Registering(Employee formData)
     {
+        DateTime bDayConvert = (DateTime)formData.Birthday;
+
         bool emptyBDay = ModelState["Birthday"].AttemptedValue == "";
-        bool under18 = formData.Birthday.AddYears(18) > DateTime.Now;
+        bool under18 = bDayConvert.AddYears(18) > DateTime.Now;
         bool emailInDB = null != _context.Employees
             .FirstOrDefault(e => e.EmailAddress == formData.EmailAddress);
 
@@ -90,12 +91,10 @@ public class HomeController : Controller
         }
         if(emailInDB)
         {
-            Console.WriteLine("\n \n \n \n \n email is in DB!");
             ModelState.AddModelError("EmailAddress", "Email is already in use!");
         }
         if(!ModelState.IsValid || emptyBDay || under18 || emailInDB) 
         {
-            Console.WriteLine("\n \n \n \n \n this is getting hit");
             ViewBag.AllRoles = _context.Roles.ToList();
             ViewBag.AllFacilities = _context.Facilities.ToList();
             return View("Register"); 

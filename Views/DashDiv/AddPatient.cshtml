@@ -44,6 +44,8 @@
                 <input asp-for="EmailAddress">
                 <span asp-validation-for="EmailAddress"></span>
 
+                <input asp-for="Facility" type="hidden" value="@ViewBag.Facility">
+
                 <input type="submit" value="Add">
             </div>
         </form>

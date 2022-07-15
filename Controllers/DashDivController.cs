@@ -90,6 +90,12 @@ public class DashDivController : Controller
         return View("/Views/DashDiv/AddPatient.cshtml");
     }
 
+    [HttpGet("/patients/chart")]
+    public IActionResult Chart()
+    {
+        return View("/Views/DashDiv/Chart.cshtml");
+    }
+
     [HttpGet("/logout")]
     public IActionResult Logout()
     {

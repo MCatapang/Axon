@@ -1,6 +1,29 @@
+@{
+    Dictionary<string, string> options = new Dictionary<string, string>()
+    {
+        {"Add Patient", "AddPatient"},
+        {"Add Chart", "AddChart"},
+        {"Settings", "Settings"},
+        {"Logout", "Logout"}
+    };
+    string? ActiveLink = Context.Session.GetString("ActiveLink");
+}
+
 <div id="optionsDropdown">
-    <a href="/">Add Patient</a>
-    <a href="/">Add Chart</a>
-    <a href="/">Settings</a>
-    <a href="/logout">Logout</a>
+    @foreach (var opt in options)
+    {
+        if(ActiveLink == opt.Key)
+        {
+            <a asp-action="@opt.Value" asp-controller="DashDiv" style="color: #0095ff">
+                @opt.Key
+            </a>
+        }
+        else
+        {
+            <a asp-action="@opt.Value" asp-controller="DashDiv">
+                @opt.Key
+            </a>
+        }
+        
+    }
 </div>

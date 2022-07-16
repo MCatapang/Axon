@@ -12,13 +12,12 @@ public class Chart
     [MinLength(20, ErrorMessage = "Must be at least 20 characters")]
     public string Content { get; set; }
 
-    [Required(ErrorMessage = "Field can't be empty!")]
     public DateTime TimeStamp { get; set; } = DateTime.Now;
 
-    [Required]
+    [Required(ErrorMessage = "Field can't be empty!")]
     public int EmployeeID { get; set; }
 
-    [Required]
+    [Required(ErrorMessage = "Field can't be empty!")]
     public int PatientID { get; set; }
 
     public Employee? Employee { get; set; }

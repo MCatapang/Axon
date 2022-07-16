@@ -66,9 +66,12 @@ public class DashDivController : Controller
     public IActionResult OnePatient(int ptID)
     {
         HttpContext.Session.SetString("ActiveLink", "None");
-
         Patient? patient = _context.Patients
             .FirstOrDefault(p => p.PatientID == ptID);
+        ViewBag.ChartEntries = _context.Charts
+            .Where(c => c.PatientID == ptID)
+            .Include("Employee")
+            .ToList();
 
         return View("/Views/DashDiv/OnePatient.cshtml", patient);
     }
@@ -91,8 +94,23 @@ public class DashDivController : Controller
     }
 
     [HttpGet("/patients/chart")]
-    public IActionResult Chart()
+    public IActionResult AddChart(int? ptID)
     {
+        int? employeeID = HttpContext.Session.GetInt32("EmployeeID");
+        ViewBag.employeeID = employeeID;
+        if(ptID == null)
+        {
+            ViewBag.PatientOptions = _context.Patients.ToList();
+        }
+        else
+        {
+            ViewBag.PatientOptions = _context.Patients
+                .Where( p => p.PatientID == ptID)
+                .ToList();
+        }
+
+        HttpContext.Session.SetString("ActiveLink", "Add Chart");
+
         return View("/Views/DashDiv/Chart.cshtml");
     }
 
@@ -177,5 +195,24 @@ public class DashDivController : Controller
             return View("AddPatient");
         }
         return RedirectToAction("OnePatient", new {ptID = newPt.PatientID});
+    }
+
+    [HttpPost("/patients/chart")]
+    public IActionResult Charting(Chart formData)
+    {
+        if(!ModelState.IsValid)
+        {
+            int? employeeID = HttpContext.Session.GetInt32("EmployeeID");
+            ViewBag.employeeID = employeeID;
+            ViewBag.PatientOptions = _context.Patients
+                .Where( p => p.PatientID == formData.PatientID)
+                .ToList();
+            return View("/Views/DashDiv/Chart.cshtml");
+        }
+
+        _context.Charts.Add(formData);
+        _context.SaveChanges();
+
+        return RedirectToAction("OnePatient", new {ptID = formData.PatientID});
     }
 }

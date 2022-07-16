@@ -7,7 +7,7 @@
             <tr>
                 <th>Name</th>
                 <th>Chief Complaint</th>
-                <th>Actions</th>
+                <th>Quick Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -20,7 +20,11 @@
                         </a>
                     </td>
                     <td>@p.Complaint</td>
-                    <td><a href="/chart/@p.PatientID">Chart</a> or <a href="/patients/@p.PatientID">Edit</a></td>
+                    <td>
+                        <a asp-action="AddChart" asp-controller="DashDiv" asp-route-ptID="@p.PatientID">
+                            Chart
+                        </a>
+                    </td>
                 </tr>
             }
         </tbody>

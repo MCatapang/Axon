@@ -13,4 +13,6 @@ public class MyContext : DbContext
     public DbSet<Role> Roles { get; set; }
     
     public DbSet<Facility> Facilities { get; set; }
+
+    public DbSet<Chart> Charts { get; set; }
 }

@@ -6,6 +6,8 @@ let formPopUpButton = document.getElementById("formPopUpButton");
 let formPopUp = document.getElementById("formPopUp");
 let toggleDropdown = false;
 let togglePopUpForm = false;
+let cEntriesTable = document.getElementById("cEntriesTable");
+let cEntriesHeader = document.getElementById("cEntriesHeader");
 
 function scrollFunction() {
     if(document.body.scrollTop > 40 || document.documentElement.scrollTop > 40) {
@@ -92,13 +94,15 @@ function setTime() {
 }
 
 formPopUpButton.addEventListener("click", function(){
-    console.log("Hellooooo");
     if(togglePopUpForm == false) {
-        console.log("it's false");
         formPopUp.style.display = "flex";
+        cEntriesTable.style.display = "none";
+        cEntriesHeader.style.display = "none";
         togglePopUpForm = true;
     } else {
         formPopUp.style.display = "none";
+        cEntriesTable.style.display = "";
+        cEntriesHeader.style.display = "";
         togglePopUpForm = false;
     }
 });

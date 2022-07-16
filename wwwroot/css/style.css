@@ -594,11 +594,12 @@ form button:active {
     background-color: red;
 }
 
-.buttonEdit {
-    margin: 0px;
+.sHeaderButton {
+    margin: 0px 4px 0px 4px;
     padding: 0px;
     width: 50px;
     height: fit-content;
+    border-radius: 8px;
 
     background-color: #ffe3bb;
 
@@ -622,13 +623,18 @@ form button:active {
 .formContent label {
     margin: 0px 0px 2.5px 0px;
 }
-.formContent input {
+.formContent input, .formContent select, .formContent textarea {
     margin: 0px;
     padding: 0px;
 
     border-radius: 8px;
 
     font-size: 20px;
+}
+.formContent textarea {
+    width: 500px;
+    height: 500px;
+    resize: none;
 }
 .formContent input[type=submit] {
     margin: 20px 0px 0px 0px;
@@ -637,4 +643,14 @@ form button:active {
     height: 40px;
 
     background-color: #0095ff;
+}
+.cEntriesTable tr:first-child,
+.cEntriesTable td:first-child{
+    margin: 0px;
+    padding: 0px;
+    width: 50%;
+    min-width: 50%;
+    max-width: 50%;
+    height: fit-content;
+    max-height: 300px;
 }

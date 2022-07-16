@@ -36,7 +36,13 @@
         <div class="section">
             <div class="sectionHeader">
                 <h1>@Model.LastName, @Model.FirstName</h1>
-                <button class="buttonEdit" id="formPopUpButton">Edit</button>
+                <button class="sHeaderButton" id="formPopUpButton">Edit</button>
+                <a asp-action="AddChart" asp-controller="DashDiv" 
+                asp-route-ptID="@Model.PatientID">
+                    <button class="sHeaderButton">
+                        Chart
+                    </button>
+                </a>
             </div>
 
             <table>
@@ -52,6 +58,30 @@
                         <tr>
                             <td>@info.Key</td>
                             <td>@info.Value</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+            <div class="sectionHeader" id="cEntriesHeader">
+                <h1>Chart Entries</h1>
+            </div>
+
+            <table class="cEntriesTable" id="cEntriesTable">
+                <thead>
+                    <tr>
+                        <th>Content</th>
+                        <th>Time Stamp</th>
+                        <th>Author</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (Chart c in ViewBag.ChartEntries)
+                    {
+                        <tr>
+                            <td>@c.Content</td>
+                            <td>@c.TimeStamp</td>
+                            <td>@c.Employee.LastName, @c.Employee.FirstName</td>
                         </tr>
                     }
                 </tbody>

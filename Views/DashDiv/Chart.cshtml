@@ -14,13 +14,28 @@
     <partial name="_NavBar"></partial>
     <partial name="_Dropdown"></partial>
     <div class="genContainerNoUH">
-        <form class="section" asp-action="Adding" 
+        <form class="section" asp-action="Charting" 
         asp-controller="DashDiv" method="post">
             <div class="sectionHeader">
                 <h1>Chart Entry</h1>
             </div>
             <div class="sectionContent formContent">
-                
+                <label>Patient Name</label>
+                <select asp-for="PatientID">
+                    @foreach (Patient opt in ViewBag.PatientOptions)
+                    {
+                        <option value="@opt.PatientID">
+                            @opt.LastName, @opt.FirstName
+                        </option>
+                    }
+                </select>
+                <span asp-validation-for="PatientID"></span>
+
+                <label asp-for="Content"></label>
+                <textarea asp-for="Content"></textarea>
+                <span asp-validation-for="Content"></span>
+
+                <input asp-for="EmployeeID" type="hidden" value="@ViewBag.employeeID">
 
                 <input type="submit" value="Create">
             </div>

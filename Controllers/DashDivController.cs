@@ -114,6 +114,12 @@ public class DashDivController : Controller
         return View("/Views/DashDiv/Chart.cshtml");
     }
 
+    [HttpGet("/settings")]
+    public IActionResult Settings()
+    {
+        return View("/Views/DashDiv/Settings.cshtml");
+    }
+
     [HttpGet("/logout")]
     public IActionResult Logout()
     {

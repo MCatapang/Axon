@@ -1,0 +1,223 @@
+-- MySQL dump 10.13  Distrib 8.0.22, for macos10.15 (x86_64)
+--
+-- Host: localhost    Database: AxonDB
+-- ------------------------------------------------------
+-- Server version	8.0.22
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8mb4 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `__EFMigrationsHistory`
+--
+
+DROP TABLE IF EXISTS `__EFMigrationsHistory`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `__EFMigrationsHistory` (
+  `MigrationId` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `ProductVersion` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  PRIMARY KEY (`MigrationId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `__EFMigrationsHistory`
+--
+
+LOCK TABLES `__EFMigrationsHistory` WRITE;
+/*!40000 ALTER TABLE `__EFMigrationsHistory` DISABLE KEYS */;
+INSERT INTO `__EFMigrationsHistory` VALUES ('20220629174749_FirstMigration','6.0.3'),('20220701173423_FacilityAndRole','6.0.6'),('20220701173629_RoleAndFacility','6.0.6'),('20220701194825_PatientProps','6.0.6'),('20220701195722_PatientMod','6.0.6'),('20220715202411_NewPatientProps','6.0.6'),('20220715203331_PersonClassTree','6.0.6'),('20220715203803_TestMigration','6.0.6'),('20220715231042_InitialChart','6.0.6'),('20220716001737_ChartClass','6.0.6'),('20220716002038_ChartClassReTry','6.0.6');
+/*!40000 ALTER TABLE `__EFMigrationsHistory` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `CareRelation`
+--
+
+DROP TABLE IF EXISTS `CareRelation`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `CareRelation` (
+  `CareRelationID` int NOT NULL AUTO_INCREMENT,
+  `EmployeeID` int NOT NULL,
+  `PatientID` int NOT NULL,
+  PRIMARY KEY (`CareRelationID`),
+  KEY `IX_CareRelation_EmployeeID` (`EmployeeID`),
+  KEY `IX_CareRelation_PatientID` (`PatientID`),
+  CONSTRAINT `FK_CareRelation_Employees_EmployeeID` FOREIGN KEY (`EmployeeID`) REFERENCES `Employees` (`EmployeeID`) ON DELETE CASCADE,
+  CONSTRAINT `FK_CareRelation_Patients_PatientID` FOREIGN KEY (`PatientID`) REFERENCES `Patients` (`PatientID`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `CareRelation`
+--
+
+LOCK TABLES `CareRelation` WRITE;
+/*!40000 ALTER TABLE `CareRelation` DISABLE KEYS */;
+/*!40000 ALTER TABLE `CareRelation` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Charts`
+--
+
+DROP TABLE IF EXISTS `Charts`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `Charts` (
+  `ChartID` int NOT NULL AUTO_INCREMENT,
+  `Content` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `TimeStamp` datetime(6) NOT NULL,
+  `EmployeeID` int NOT NULL,
+  `PatientID` int NOT NULL,
+  PRIMARY KEY (`ChartID`),
+  KEY `IX_Charts_EmployeeID` (`EmployeeID`),
+  KEY `IX_Charts_PatientID` (`PatientID`),
+  CONSTRAINT `FK_Charts_Employees_EmployeeID` FOREIGN KEY (`EmployeeID`) REFERENCES `Employees` (`EmployeeID`) ON DELETE CASCADE,
+  CONSTRAINT `FK_Charts_Patients_PatientID` FOREIGN KEY (`PatientID`) REFERENCES `Patients` (`PatientID`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Charts`
+--
+
+LOCK TABLES `Charts` WRITE;
+/*!40000 ALTER TABLE `Charts` DISABLE KEYS */;
+INSERT INTO `Charts` VALUES (1,'This is the very first chart entry that we will be testing out for a single patient.','2022-07-15 17:21:23.305777',8,1),(2,'This is the very first chart entry that we will be testing out for a single patient.This is the very first chart entry that we will be testing out for a single patient.This is the very first chart entry that we will be testing out for a single patient.This is the very first chart entry that we will be testing out for a single patient.This is the very first chart entry that we will be testing out for a single patient.This is the very first chart entry that we will be testing out for a single patient.','2022-07-15 17:29:04.348671',8,1);
+/*!40000 ALTER TABLE `Charts` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Employees`
+--
+
+DROP TABLE IF EXISTS `Employees`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `Employees` (
+  `EmployeeID` int NOT NULL AUTO_INCREMENT,
+  `PrimaryRole` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `Password` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `FirstName` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `LastName` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `Address` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `Birthday` datetime(6) NOT NULL,
+  `Facility` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `EmailAddress` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `CreatedAt` datetime(6) NOT NULL,
+  `UpdatedAt` datetime(6) NOT NULL,
+  PRIMARY KEY (`EmployeeID`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Employees`
+--
+
+LOCK TABLES `Employees` WRITE;
+/*!40000 ALTER TABLE `Employees` DISABLE KEYS */;
+INSERT INTO `Employees` VALUES (1,'Nurse','AQAAAAEAACcQAAAAELghhy5tkRaEX4smlBFcPpvDNPy82ulKOmVO3gvXBs3kP99cLiZQT5ybIAISP7mybA==','Sponge','Bob','asdadnkjask','2000-05-10 00:00:00.000000','Grey Sloan Memorial Hospital','sponge@bob.com','2022-06-29 10:49:02.165272','2022-06-29 10:49:02.165299'),(3,'Doctor','AQAAAAEAACcQAAAAEDmsOk3AU0wmYm5w2eQSKVwkpzBz8g0utmoekiCzoetx2B9+G00BbS18oE2nocqgiQ==','Celeste','Catapang','69 Woof St.','2000-07-20 00:00:00.000000','Grey Sloan Memorial Hospital','ccatapang@gmail.com','2022-07-01 11:04:03.682633','2022-07-01 11:04:03.682668'),(4,'Medical Assistant','AQAAAAEAACcQAAAAEEIqCbd6JaRFrAkoTIO476qtwORQl9RWYEwvTZaCMqICfQ9ObvjWjzAn3yC92Yk1gw==','Michael','Catapang','5959 St','2000-07-01 00:00:00.000000','Grey Sloan Memorial Hospital','michael@catapang.com','2022-07-01 13:32:19.978095','2022-07-01 13:32:19.978120'),(8,'Doctor','AQAAAAEAACcQAAAAEMDVb50/4P0R90qsAY7WqameaUEsGe1b9DQZfxz/ASbee9wC1rKSi8XXP8W+zYNWMA==','Test','User','69 Test User St.','2000-04-04 00:00:00.000000','Grey Sloan Memorial Hospital','test@user.com','2022-07-15 15:47:54.481937','2022-07-15 15:47:54.481944');
+/*!40000 ALTER TABLE `Employees` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Facilities`
+--
+
+DROP TABLE IF EXISTS `Facilities`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `Facilities` (
+  `FacilityID` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `FacilityName` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  PRIMARY KEY (`FacilityID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Facilities`
+--
+
+LOCK TABLES `Facilities` WRITE;
+/*!40000 ALTER TABLE `Facilities` DISABLE KEYS */;
+INSERT INTO `Facilities` VALUES ('1','Grey Sloan Memorial Hospital'),('2','Seattle Grace Hospital'),('3','Spring Harbor Clinic');
+/*!40000 ALTER TABLE `Facilities` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Patients`
+--
+
+DROP TABLE IF EXISTS `Patients`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `Patients` (
+  `PatientID` int NOT NULL AUTO_INCREMENT,
+  `Complaint` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `FirstName` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `LastName` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `Address` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
+  `Birthday` datetime(6) DEFAULT NULL,
+  `Facility` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `EmailAddress` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
+  `CreatedAt` datetime(6) NOT NULL,
+  `UpdatedAt` datetime(6) NOT NULL,
+  PRIMARY KEY (`PatientID`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Patients`
+--
+
+LOCK TABLES `Patients` WRITE;
+/*!40000 ALTER TABLE `Patients` DISABLE KEYS */;
+INSERT INTO `Patients` VALUES (1,'Pregnancy','Mereditha','Grey','6996 good','2000-01-01 00:00:00.000000','Grey Sloan Memorial Hospital','test@gmail.com','2000-01-01 01:01:01.000000','2022-07-14 22:40:07.765524'),(2,'Imbalance','Deedee','McDead','6996 Hopeful St.','2000-01-01 00:00:00.000000','Grey Sloan Memorial Hospital','test@gmail.com','2000-01-01 01:01:01.000000','2022-07-15 13:04:00.400436'),(3,'Burn','Tanjiro','Kamado',NULL,NULL,'Grey Sloan Memorial Hospital',NULL,'2022-07-15 14:24:08.257411','2022-07-15 14:24:08.257419'),(4,'Baka','Onii','Chan',NULL,NULL,'Grey Sloan Memorial Hospital',NULL,'2022-07-15 14:25:39.218279','2022-07-15 14:35:45.222227');
+/*!40000 ALTER TABLE `Patients` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Roles`
+--
+
+DROP TABLE IF EXISTS `Roles`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `Roles` (
+  `RoleID` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `RoleName` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  PRIMARY KEY (`RoleID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Roles`
+--
+
+LOCK TABLES `Roles` WRITE;
+/*!40000 ALTER TABLE `Roles` DISABLE KEYS */;
+INSERT INTO `Roles` VALUES ('1','Nurse'),('2','Doctor'),('3','Medical Assistant');
+/*!40000 ALTER TABLE `Roles` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2022-07-15 19:55:27

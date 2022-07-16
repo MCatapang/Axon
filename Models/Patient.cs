@@ -17,7 +17,7 @@ public class Patient : Person
     [DataType(DataType.Date)]
     public override DateTime? Birthday { get; set; }
 
-    [Display(Name = "Email Test")]
+    [Display(Name = "Email Address")]
     public override string? EmailAddress { get; set; }
 
     public List<Chart> ChartEntries { get; set; } = new List<Chart>();

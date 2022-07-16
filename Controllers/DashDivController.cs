@@ -51,7 +51,7 @@ public class DashDivController : Controller
             .FirstOrDefault(e => e.EmployeeID == employeeID);
         if(employee == null)
         {
-            return RedirectToAction("Home", "HomeController");
+            return RedirectToAction("Home", "Home");
         }
 
         HttpContext.Session.SetString("ActiveLink", "All Patients");
@@ -65,6 +65,14 @@ public class DashDivController : Controller
     [HttpGet("/patients/{ptID}")]
     public IActionResult OnePatient(int ptID)
     {
+        int? employeeID = HttpContext.Session.GetInt32("EmployeeID");
+        Employee? employee = _context.Employees
+            .FirstOrDefault(e => e.EmployeeID == employeeID);
+        if(employee == null)
+        {
+            return RedirectToAction("Home", "Home");
+        }
+
         HttpContext.Session.SetString("ActiveLink", "None");
         Patient? patient = _context.Patients
             .FirstOrDefault(p => p.PatientID == ptID);
@@ -97,6 +105,13 @@ public class DashDivController : Controller
     public IActionResult AddChart(int? ptID)
     {
         int? employeeID = HttpContext.Session.GetInt32("EmployeeID");
+        Employee? employee = _context.Employees
+            .FirstOrDefault(e => e.EmployeeID == employeeID);
+        if(employee == null)
+        {
+            return RedirectToAction("Home", "Home");
+        }
+
         ViewBag.employeeID = employeeID;
         if(ptID == null)
         {
@@ -117,12 +132,26 @@ public class DashDivController : Controller
     [HttpGet("/settings")]
     public IActionResult Settings()
     {
+        int? employeeID = HttpContext.Session.GetInt32("EmployeeID");
+        Employee? employee = _context.Employees
+            .FirstOrDefault(e => e.EmployeeID == employeeID);
+        if(employee == null)
+        {
+            return RedirectToAction("Home", "Home");
+        }
         return View("/Views/DashDiv/Settings.cshtml");
     }
 
     [HttpGet("/logout")]
     public IActionResult Logout()
     {
+        int? employeeID = HttpContext.Session.GetInt32("EmployeeID");
+        Employee? employee = _context.Employees
+            .FirstOrDefault(e => e.EmployeeID == employeeID);
+        if(employee == null)
+        {
+            return RedirectToAction("Home", "Home");
+        }
         HttpContext.Session.Clear();
         return RedirectToAction("Home", "Home");
     }

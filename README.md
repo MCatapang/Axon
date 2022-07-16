@@ -3,19 +3,19 @@
 ## Technologies Used
 - C# / ASP.NET Core
 - Entity Framework Core
-- RAzor
+- Razor
 - MySQL Database
 - JavaScript and CSS Animations
 - Partials
 - SendGrid API
-- Azure Key Vault
+- AWS EC2
 
 ## To-Do (MVC)
-- [ ] Build Views
+- [x] Build Views
   - [x] All Patients
   - [x] One Patient (Edit)
   - [x] Add Patient
-  - [ ] Add Chart (in the same facility)
+  - [x] Add Chart (in the same facility)
 - [x] Replace divs with partials
   - [x] \_UserPatient.cshtml
   - [x] \_UserShift.cshtml

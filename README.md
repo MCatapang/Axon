@@ -13,6 +13,10 @@
 - SendGrid API
 - AWS EC2
 
+## Updates
+- 2022-07-15: Deployed the [Axon](http://54.151.5.51/) MVP as an AWS EC2 Instance
+- 2022-07-15: Development and refactoring placed on hold in lieu of another project by Michael Catapang
+
 ## Future Development
 - Settings (e.g., change user email and password)
 - Profile picture upload

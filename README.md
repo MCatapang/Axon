@@ -1,4 +1,7 @@
-# Read Me
+# Axon
+
+## About
+*Axon* is a healthcare management web app built for healthcare professionals working in either inpatient or outpatient settings. It aims to provide an interface where users can easily access workflow data - while being able to manage patient care information at the same time. For more information, see Axon's [About](http://54.151.5.51/about) webpage.
 
 ## Technologies Used
 - C# / ASP.NET Core
@@ -10,22 +13,7 @@
 - SendGrid API
 - AWS EC2
 
-## To-Do (MVC)
-- [x] Build Views
-  - [x] All Patients
-  - [x] One Patient (Edit)
-  - [x] Add Patient
-  - [x] Add Chart (in the same facility)
-- [x] Replace divs with partials
-  - [x] \_UserPatient.cshtml
-  - [x] \_UserShift.cshtml
-
-## Potential Features
+## Future Development
 - Settings (e.g., change user email and password)
 - Profile picture upload
-
-## Future Refactoring
 - Optimization for mobile
-- Changed _NavBar.cshtml hrefs to asp html attributes (e.g., asp-action)
-- Make consistent passes from controller to views (e.g., use ViewBag and model for diff. things)
-- Make code more DRY
